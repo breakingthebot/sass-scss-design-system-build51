@@ -5,11 +5,16 @@ All notable changes to **Build 51 (ApexUI — Enterprise Sass/SCSS Design System
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-07-29
+
+### Added
+- Integrated **Status Badges & Pill Ribbon Strip Component (`scss/components/_ribbons.scss`)**.
+- Added 45-degree corner ribbon badges and animated pulse status indicators (`@keyframes pulseGlow`).
+
 ## [2.1.0] - 2026-07-29
 
 ### Added
 - Integrated **Modal Dialog System Expansion (`scss/components/_modals.scss`)**.
-- Added zero-JS confirmation dialogs (`#modal-confirm`) and SCSS bundle export modals (`#modal-export`) triggered natively via `:target` selectors.
 
 ## [2.0.0] - 2026-07-29
 
