@@ -31,6 +31,7 @@
 @use 'components/search' as *;
 @use 'components/ribbons' as *;
 @use 'components/sliders' as *;
+@use 'components/flip-cards' as *;
 @use 'components/data-table' as *;
 @use 'components/modals' as *;
 
@@ -52,16 +53,14 @@
   }
 
   .hero-subtitle, p { color: #475569; }
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .ribbon-card-container, .slider-card, .data-table-wrapper, .modal-card {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .ribbon-card-container, .slider-card, .flip-card-front, .data-table-wrapper, .modal-card {
     background: #ffffff;
     border-color: #e2e8f0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
 
-  .form-range {
-    background: #e2e8f0;
-    border-color: #cbd5e1;
-  }
+  .flip-title { color: #0f172a; }
+  .flip-card-back { background: #0f172a; }
 }
 
 #theme-cyber:checked ~ .app-wrapper {
@@ -71,7 +70,7 @@
     border-bottom-color: rgba(255, 0, 127, 0.4);
   }
 
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .ribbon-card-container, .slider-card, .modal-card {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .ribbon-card-container, .slider-card, .flip-card-front, .modal-card {
     border-color: rgba(0, 246, 255, 0.4);
     box-shadow: 0 0 25px rgba(0, 246, 255, 0.2);
   }

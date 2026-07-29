@@ -4,13 +4,13 @@
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/LICENSE)
 [![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/scss/main.scss)
-[![Release](https://img.shields.io/badge/Release-v2.3.0-blue?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
+[![Release](https://img.shields.io/badge/Release-v2.4.0-purple?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
 
 ---
 
 ## 🌟 Overview
 
-**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, range sliders, volume level meters, corner ribbon strips, pulse status badges, zero-JS modal dialog system, module search filter bars, code inspectors, FAQ accordions, slide-over config drawers, release timelines, pricing cards, form controls, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
+**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, 3D flipping feature cards, range sliders, volume level meters, corner ribbon strips, pulse status badges, zero-JS modal dialog system, module search filter bars, code inspectors, FAQ accordions, slide-over config drawers, release timelines, pricing cards, form controls, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
 
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
@@ -49,6 +49,7 @@ Build_51/
 │   │   ├── _search.scss         # Search bar & active filter tag pill bar
 │   │   ├── _ribbons.scss        # Corner ribbons & animated pulse status badges
 │   │   ├── _sliders.scss        # Custom range sliders & segmented volume meters
+│   │   ├── _flip-cards.scss     # 3D perspective hover flip cards
 │   │   ├── _data-table.scss    # Customer deployment records data table
 │   │   └── _modals.scss         # Zero-JS :target confirmation & export modal dialogs
 │   └── main.scss                # Primary entrypoint compiling cleanly to css/style.css
@@ -64,6 +65,7 @@ Build_51/
 ## 🔥 Key Highlights
 
 - **🎯 Standalone Professional Application**: Designed specifically for enterprise UI engineering teams.
+- **🎴 3D Flipping Feature Cards**: Perspective 3D cards rotating 180 degrees on hover to expose raw SCSS code snippets.
 - **🎛️ SCSS Sliders & Level Meters**: Custom styled range controls and segmented SCSS volume meters driven by CSS variables (`--meter-level`).
 - **🏷️ Corner Ribbons & Pulse Badges**: 45-degree corner ribbons overlaying card elements and animated pulse status indicators (`@keyframes pulseGlow`).
 - **🪟 Modal Dialog System**: Expanded `:target` modal overlay system featuring action confirmation dialogs and SCSS bundle export views.

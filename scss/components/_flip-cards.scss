@@ -1,0 +1,97 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: 3D Flipping Feature Cards
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.flip-card-perspective {
+  perspective: 1000px;
+  height: 260px;
+  margin-top: $spacing-6;
+
+  &:hover {
+    .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: $radius-xl;
+    padding: $spacing-6;
+    @include flex-align(column, space-between, flex-start);
+  }
+
+  .flip-card-front {
+    @include glass-card();
+    border-color: rgba(99, 102, 241, 0.3);
+
+    .flip-icon {
+      font-size: 2rem;
+      margin-bottom: $spacing-3;
+    }
+
+    .flip-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: $spacing-2;
+    }
+
+    .flip-desc {
+      font-size: 0.875rem;
+      color: $color-slate-300;
+      line-height: 1.5;
+    }
+
+    .flip-hint {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      color: $color-brand-light;
+      align-self: flex-end;
+    }
+  }
+
+  .flip-card-back {
+    background: $color-slate-900;
+    border: 1px solid $color-brand-primary;
+    box-shadow: 0 0 25px rgba(79, 70, 229, 0.4);
+    transform: rotateY(180deg);
+
+    .back-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $color-cyan;
+    }
+
+    .back-code {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: $spacing-3;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      color: $color-success;
+      overflow-x: auto;
+    }
+
+    .back-footer {
+      font-size: 0.75rem;
+      color: $color-slate-400;
+      align-self: flex-end;
+    }
+  }
+}
