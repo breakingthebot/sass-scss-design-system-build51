@@ -1,0 +1,45 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Abstracts: Theme Tokens & @each Generator
+// ==========================================================================
+
+@use 'variables' as *;
+
+// Theme Token Maps
+$themes: (
+  'dark': (
+    'bg-main': $color-slate-900,
+    'bg-card': rgba(30, 41, 59, 0.75),
+    'text-main': #ffffff,
+    'text-muted': $color-slate-400,
+    'border-color': rgba(255, 255, 255, 0.08),
+    'brand-accent': $color-brand-primary,
+    'shadow-elevation': 0 20px 25px -5px rgba(0, 0, 0, 0.4)
+  ),
+  'light': (
+    'bg-main': #f8fafc,
+    'bg-card': #ffffff,
+    'text-main': #0f172a,
+    'text-muted': #64748b,
+    'border-color': #e2e8f0,
+    'brand-accent': #4338ca,
+    'shadow-elevation': 0 10px 25px -5px rgba(0, 0, 0, 0.08)
+  ),
+  'cyber': (
+    'bg-main': #030712,
+    'bg-card': rgba(15, 23, 42, 0.9),
+    'text-main': #00f6ff,
+    'text-muted': #94a3b8,
+    'border-color': rgba(255, 0, 127, 0.4),
+    'brand-accent': #ff007f,
+    'shadow-elevation': 0 0 30px rgba(0, 246, 255, 0.3)
+  )
+);
+
+// SCSS @each Loop Theme Generator
+@each $theme-name, $tokens in $themes {
+  .theme-#{$theme-name} {
+    @each $token, $value in $tokens {
+      --#{$token}: #{$value};
+    }
+  }
+}

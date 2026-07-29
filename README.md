@@ -3,13 +3,13 @@
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://sass-scss-design-system-build51.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
 [![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/scss/main.scss)
-[![JavaScript](https://img.shields.io/badge/JavaScript-0%25%20No%20JS-F7DF1E?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/index.html)
+[![Release](https://img.shields.io/badge/Release-v1.1.0-indigo?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
 
 ---
 
 ## 🌟 Overview
 
-**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, component stylesheets, and zero JavaScript dependencies.
+**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, component stylesheets, and zero JavaScript dependencies.
 
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
@@ -25,7 +25,8 @@ Build_51/
 │   ├── abstracts/
 │   │   ├── _variables.scss      # Design tokens (Indigo/Slate palette, spacing scale, breakpoints map)
 │   │   ├── _mixins.scss         # Media query @mixin respond-to, @mixin glass-card, @mixin flex-align
-│   │   └── _functions.scss      # rem() and em() pixel calculation functions
+│   │   ├── _functions.scss      # rem() and em() pixel calculation functions
+│   │   └── _themes.scss         # SCSS @each theme token map iteration loop
 │   ├── base/
 │   │   ├── _reset.scss          # Box-sizing, accessibility reset & state hacks
 │   │   └── _typography.scss     # Google Fonts (Inter, Outfit, Fira Code) & gradient text
@@ -49,6 +50,7 @@ Build_51/
 ## 🔥 Key Highlights
 
 - **🎯 Standalone Professional Application**: Designed specifically for enterprise UI engineering teams.
+- **🎨 SCSS @each Theme Generator**: Dynamically iterates over `$themes` maps to generate `.theme-dark`, `.theme-light`, and `.theme-cyber` classes.
 - **⚙️ SCSS Maps & Media Query Mixin**: Responsive breakpoint handling via `@mixin respond-to($breakpoint)` utilizing `map.has-key` and `map.get`.
 - **📊 Real-World Component Suites**: Metric Dashboard Widgets, Customer Data Tables, Status Badges, Design Token Swatches.
 - **⚡ 0kb JS Executable Overhead**: 100% Pure CSS interactivity — zero script tags, zero framework runtimes.

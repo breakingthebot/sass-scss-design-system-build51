@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Hidden Pure CSS Mobile Navigation State Input -->
+    <!-- Hidden Pure CSS State Inputs -->
     <input type="checkbox" id="nav-toggle" class="state-hack" />
+
+    <!-- Pure CSS Theme Switcher Radios -->
+    <input type="radio" id="theme-dark" name="theme-switch" class="state-hack" checked />
+    <input type="radio" id="theme-light" name="theme-switch" class="state-hack" />
+    <input type="radio" id="theme-cyber" name="theme-switch" class="state-hack" />
 
     <div class="app-wrapper">
       <!-- Sticky Navigation Header -->
@@ -18,7 +23,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.1.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -30,14 +35,20 @@
 
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
+            <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
             <li><a href="#components" class="nav-link">UI Components</a></li>
             <li><a href="#data-table" class="nav-link">Data Table</a></li>
-            <li><a href="#modal-inspect-variables" class="nav-link">Variables Spec</a></li>
           </ul>
 
           <div class="nav-actions">
-            <a href="#modal-inspect-mixins" class="btn btn-outline btn-sm">Inspect Mixins</a>
+            <!-- SCSS Reactive Theme Switcher Labels -->
+            <div style="display: flex; gap: 4px; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <label for="theme-dark" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #fff; user-select: none;">🌙 Dark</label>
+              <label for="theme-light" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #fff; user-select: none;">☀️ Light</label>
+              <label for="theme-cyber" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #00f6ff; user-select: none;">⚡ Cyber</label>
+            </div>
+
             <a href="#components" class="btn btn-primary btn-sm">Explore Components</a>
           </div>
         </div>
@@ -59,12 +70,12 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#components" class="btn btn-primary btn-lg">
-                ⚡ Component Showcase
+              <a href="#themes" class="btn btn-primary btn-lg">
+                🎨 SCSS Theme Token Generator
               </a>
               <a href="#architecture" class="btn btn-secondary btn-lg">
                 ⚙️ SCSS Directory Specs
@@ -80,11 +91,20 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/abstracts/_mixins.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.0</span>
+              <span class="file-path">scss/abstracts/_themes.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.1.0</span>
             </div>
 
             <pre>
+<span class="token-comment">// SCSS @each Theme Generator Loop</span>
+<span class="token-keyword">@each</span> <span class="token-variable">$theme-name</span>, <span class="token-variable">$tokens</span> in <span class="token-variable">$themes</span> {
+  .theme-#{$theme-name} {
+    <span class="token-keyword">@each</span> <span class="token-variable">$token</span>, <span class="token-variable">$value</span> in <span class="token-variable">$tokens</span> {
+      --#{$token}: #{$value};
+    }
+  }
+}
+
 <span class="token-comment">// Responsive Breakpoint Helper</span>
 <span class="token-keyword">@mixin</span> <span class="token-mixin">respond-to</span>(<span class="token-variable">$breakpoint</span>) {
   <span class="token-keyword">@if</span> map.has-key(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>) {
@@ -92,15 +112,38 @@
       <span class="token-keyword">@content</span>;
     }
   }
-}
-
-<span class="token-comment">// Glassmorphism Container Mixin</span>
-<span class="token-keyword">@mixin</span> <span class="token-mixin">glass-card</span>(<span class="token-variable">$bg</span>: rgba(30, 41, 59, 0.7)) {
-  background: <span class="token-variable">$bg</span>;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  box-shadow: <span class="token-variable">$shadow-xl</span>;
 }</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCSS THEME TOKEN GENERATOR SECTION (NEW v1.1.0) -->
+      <section id="themes" class="container" style="padding: 60px 24px;">
+        <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+            <div>
+              <span class="badge badge-brand">SCSS @EACH THEME GENERATOR</span>
+              <h2 style="margin-top: 8px;">Multi-Theme Token Engine</h2>
+              <p>Click the theme buttons in the top navbar to instantly test SCSS theme maps (`dark`, `light`, `cyber`)!</p>
+            </div>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/abstracts/_themes.scss</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px;">
+              <h4 style="color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 8px;">🌙 Dark Slate Theme</h4>
+              <p style="font-size: 0.875rem; color: #94a3b8;">Default enterprise dark mode with `$color-slate-900` background and `$color-brand-primary` indigo accents.</p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px;">
+              <h4 style="color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 8px;">☀️ Light Enterprise Theme</h4>
+              <p style="font-size: 0.875rem; color: #94a3b8;">High-contrast corporate light palette with `#f8fafc` canvas and soft elevation shadows.</p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 20px;">
+              <h4 style="color: #00f6ff; font-size: 1rem; font-weight: 700; margin-bottom: 8px;">⚡ Cyber Obsidian Theme</h4>
+              <p style="font-size: 0.875rem; color: #94a3b8;">Neon cyan glow effects and magenta borders generated dynamically via SCSS map iteration.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -117,7 +160,7 @@
           <div class="feature-card">
             <div class="card-icon">🎨</div>
             <h3 class="card-title">`scss/abstracts/`</h3>
-            <p class="card-desc">Contains `_variables.scss` tokens, `@mixin respond-to` media queries, and `rem()` calculation functions.</p>
+            <p class="card-desc">Contains `_variables.scss` tokens, `_themes.scss` maps, `@mixin respond-to` media queries, and `rem()` functions.</p>
             <a href="#modal-inspect-variables" class="btn btn-outline btn-sm" style="margin-top: 16px;">Inspect Variables</a>
           </div>
 
@@ -324,29 +367,6 @@ $font-mono: 'Fira Code', monospace;</pre>
         </div>
       </div>
 
-      <div id="modal-inspect-mixins" class="modal-overlay">
-        <div class="modal-card">
-          <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
-          <h2 class="modal-title">⚡ `scss/abstracts/_mixins.scss`</h2>
-          <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 16px;">
-            Responsive media query mixin and glassmorphism helpers.
-          </p>
-
-          <pre style="background: rgba(0, 0, 0, 0.6); padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.8125rem; color: #818cf8;">
-@mixin respond-to($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    @media (max-width: map.get($breakpoints, $breakpoint)) {
-      @content;
-    }
-  }
-}</pre>
-
-          <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
-            <a href="#" class="btn btn-secondary btn-sm">Close Inspector</a>
-          </div>
-        </div>
-      </div>
-
       <!-- Enterprise Footer -->
       <footer class="footer">
         <div class="container">
@@ -365,9 +385,9 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
-                <li><a href="#modal-inspect-mixins">_mixins.scss</a></li>
+                <li><a href="#themes">_themes.scss</a></li>
+                <li><a href="#architecture">_mixins.scss</a></li>
                 <li><a href="#architecture">_functions.scss</a></li>
-                <li><a href="#architecture">_reset.scss</a></li>
               </ul>
             </div>
 
@@ -385,7 +405,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.0.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.1.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -394,7 +414,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ 100% Clean Compiled CSS • Zero JavaScript Payload</span>
+            <span>⚡ Release v1.1.0 • SCSS Theme Token Switcher</span>
           </div>
         </div>
       </footer>

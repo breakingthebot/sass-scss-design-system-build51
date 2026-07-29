@@ -2,10 +2,13 @@
 // ApexUI Enterprise Design System — SCSS Main Entrypoint
 // ==========================================================================
 
+@use 'sass:map';
+
 // 1. Abstracts
 @use 'abstracts/variables' as *;
 @use 'abstracts/mixins' as *;
 @use 'abstracts/functions' as *;
+@use 'abstracts/themes' as *;
 
 // 2. Base Styles
 @use 'base/reset' as *;
@@ -20,7 +23,45 @@
 @use 'components/data-table' as *;
 @use 'components/modals' as *;
 
-// 4. Footer Component
+// 4. Reactive Theme Switcher Rules
+#theme-dark:checked ~ .app-wrapper {
+  background-color: map.get(map.get($themes, 'dark'), 'bg-main');
+  color: map.get(map.get($themes, 'dark'), 'text-main');
+}
+
+#theme-light:checked ~ .app-wrapper {
+  background-color: map.get(map.get($themes, 'light'), 'bg-main');
+  color: map.get(map.get($themes, 'light'), 'text-main');
+
+  .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: #e2e8f0;
+    .brand-logo { color: #0f172a; }
+    .nav-menu .nav-link { color: #475569; &:hover { color: #4338ca; } }
+  }
+
+  .hero-subtitle, p { color: #475569; }
+  .feature-card, .metric-widget, .code-inspector-card, .data-table-wrapper {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
+}
+
+#theme-cyber:checked ~ .app-wrapper {
+  background-color: map.get(map.get($themes, 'cyber'), 'bg-main');
+
+  .navbar {
+    border-bottom-color: rgba(255, 0, 127, 0.4);
+  }
+
+  .feature-card, .metric-widget, .code-inspector-card {
+    border-color: rgba(0, 246, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 246, 255, 0.2);
+  }
+}
+
+// 5. Footer Component
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: $spacing-16 0 $spacing-8 0;
