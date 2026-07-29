@@ -3,13 +3,13 @@
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://sass-scss-design-system-build51.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
 [![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/scss/main.scss)
-[![Release](https://img.shields.io/badge/Release-v1.7.0-blue?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
+[![Release](https://img.shields.io/badge/Release-v1.8.0-violet?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
 
 ---
 
 ## 🌟 Overview
 
-**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, code inspectors, release timelines, pricing cards, form controls, system alert callouts, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
+**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, code inspectors, slide-over config drawers, release timelines, pricing cards, form controls, system alert callouts, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
 
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
@@ -42,6 +42,7 @@ Build_51/
 │   │   ├── _forms.scss          # Enterprise text inputs, selects, input groups & toggle switches
 │   │   ├── _pricing.scss        # SaaS subscription pricing cards grid
 │   │   ├── _timeline.scss       # Interactive release timeline & history component
+│   │   ├── _drawers.scss        # Slide-over component settings drawer
 │   │   ├── _data-table.scss    # Customer deployment records data table
 │   │   └── _modals.scss         # Zero-JS :target documentation inspect modals
 │   └── main.scss                # Primary entrypoint compiling cleanly to css/style.css
@@ -56,6 +57,7 @@ Build_51/
 ## 🔥 Key Highlights
 
 - **🎯 Standalone Professional Application**: Designed specifically for enterprise UI engineering teams.
+- **🧩 Slide-Over Config Drawer**: Side drawer configuration panel triggered natively via `:target` selectors with backdrop blur.
 - **📜 SCSS Release Timeline**: Interactive version timeline with pseudo-element gradient connectors and glowing hover node dots.
 - **🏷️ Subscription Pricing Cards**: Responsive SaaS pricing plan grid with popular plan badges, feature checkmarks, and CTA buttons.
 - **📝 Form Controls & Input Groups**: Styled text inputs, select dropdowns, input addon groups, and toggle switches with focus ring states.

@@ -1,0 +1,84 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Slide-Over Settings Drawer
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    .drawer-panel {
+      transform: translateX(0);
+    }
+  }
+}
+
+.drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: $color-slate-900;
+  border-left: 1px solid rgba(99, 102, 241, 0.4);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+  padding: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .drawer-header {
+    @include flex-align(row, space-between, center);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: $spacing-4;
+    margin-bottom: $spacing-6;
+
+    .drawer-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .drawer-close {
+      color: $color-slate-400;
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: bold;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+  }
+
+  .drawer-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: $spacing-4;
+    margin-top: auto;
+    display: flex;
+    gap: $spacing-3;
+  }
+}

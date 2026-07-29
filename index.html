@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -29,7 +29,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.7.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.8.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -60,6 +60,7 @@
               <label for="theme-cyber" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #00f6ff; user-select: none;">⚡ Cyber</label>
             </div>
 
+            <a href="#drawer-settings" class="btn btn-outline btn-sm">⚙️ Config Drawer</a>
             <a href="#timeline" class="btn btn-primary btn-sm">Release History</a>
           </div>
         </div>
@@ -81,15 +82,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#timeline" class="btn btn-primary btn-lg">
-                📜 Release Timeline &amp; History
+              <a href="#drawer-settings" class="btn btn-primary btn-lg">
+                ⚙️ Slide-Over Config Drawer
               </a>
-              <a href="#pricing" class="btn btn-secondary btn-lg">
-                🏷️ Subscription Pricing Plans
+              <a href="#timeline" class="btn btn-secondary btn-lg">
+                📜 Release Timeline &amp; History
               </a>
             </div>
           </div>
@@ -102,29 +103,79 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_timeline.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.7.0</span>
+              <span class="file-path">scss/components/_drawers.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.8.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Interactive Release Timeline</span>
-.timeline {
-  position: relative;
-  padding-left: <span class="token-variable">$spacing-8</span>;
+<span class="token-comment">// Slide-Over Settings Drawer (:target trigger)</span>
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(12px);
 
-  &amp;::before {
-    content: '';
-    position: absolute;
-    left: 12px;
-    width: 2px;
-    background: linear-gradient(180deg, <span class="token-variable">$color-brand-primary</span>, transparent);
+  &amp;:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    .drawer-panel { transform: translateX(0); }
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- SCSS INTERACTIVE RELEASE TIMELINE SECTION (NEW v1.7.0) -->
+      <!-- PURE CSS SLIDE-OVER SETTINGS DRAWER (TRIGGERED VIA :target) (NEW v1.8.0) -->
+      <div id="drawer-settings" class="drawer-overlay">
+        <div class="drawer-panel">
+          <div class="drawer-header">
+            <h2 class="drawer-title">⚙️ SCSS System Config</h2>
+            <a href="#" class="drawer-close" title="Close Drawer">✕</a>
+          </div>
+
+          <div class="drawer-body">
+            <div class="form-group">
+              <label class="form-label">Sass Compiler Minification Target</label>
+              <select class="form-control form-select">
+                <option>Dart Sass 3.0 (Compressed)</option>
+                <option>Sass Modern Module Map (Expanded)</option>
+                <option>CSS Custom Property Output</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Design System Density Scale</label>
+              <select class="form-control form-select">
+                <option>Comfortable (16px Base Rem)</option>
+                <option>Compact (14px Base Rem)</option>
+                <option>Enterprise High-Density (12px Base Rem)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Active Theme Override Target</label>
+              <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 8px;">
+                <label for="theme-dark" style="cursor: pointer; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 0.875rem;">
+                  <span class="badge badge-brand">🌙 Dark Slate</span>
+                </label>
+                <label for="theme-light" style="cursor: pointer; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 0.875rem;">
+                  <span class="badge badge-success">☀️ Light Enterprise</span>
+                </label>
+                <label for="theme-cyber" style="cursor: pointer; display: flex; align-items: center; gap: 8px; color: #00f6ff; font-size: 0.875rem;">
+                  <span class="badge" style="background: rgba(0,246,255,0.2); color: #00f6ff; border: 1px solid #00f6ff;">⚡ Cyber Obsidian</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-footer">
+            <a href="#" class="btn btn-primary btn-sm" style="width: 100%;">Save Configuration</a>
+            <a href="#" class="btn btn-secondary btn-sm" style="width: 100%;">Close Panel</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCSS INTERACTIVE RELEASE TIMELINE SECTION -->
       <section id="timeline" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -136,6 +187,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v1.8.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v1.8.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Component Settings Slide-Over Drawer (`scss/components/_drawers.scss`)**. Added side drawer panel triggered natively via `:target` selectors with backdrop blur.
+            </div>
+          </div>
+
           <!-- Release v1.7.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -157,18 +220,6 @@
             </div>
             <div class="timeline-body">
               Integrated **Subscription Pricing Cards Grid (`scss/components/_pricing.scss`)**. Added popular plan badges, feature checkmarks, and glassmorphism pricing cards.
-            </div>
-          </div>
-
-          <!-- Release v1.5.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v1.5.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Enterprise Form Controls &amp; Input Groups (`scss/components/_forms.scss`)**. Added text inputs, select dropdowns, input addons, and toggle switches.
             </div>
           </div>
         </div>
@@ -356,8 +407,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v1.7.0 Available</div>
-              <div class="alert-desc">Integrated SCSS Interactive Release Timeline component.</div>
+              <div class="alert-title">New SCSS Release v1.8.0 Available</div>
+              <div class="alert-desc">Integrated Component Settings Slide-Over Drawer.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -554,7 +605,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -728,7 +779,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.7.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.8.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -777,18 +828,18 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#drawer-settings">_drawers.scss</a></li>
                 <li><a href="#timeline">_timeline.scss</a></li>
                 <li><a href="#pricing">_pricing.scss</a></li>
-                <li><a href="#forms">_forms.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#drawer-settings">Config Drawer</a></li>
                 <li><a href="#timeline">Release Timeline</a></li>
                 <li><a href="#pricing">Pricing Cards</a></li>
-                <li><a href="#forms">Form Controls</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -797,7 +848,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.7.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.8.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -806,7 +857,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.7.0 • Interactive Release Timeline</span>
+            <span>⚡ Release v1.8.0 • Slide-Over Config Drawer</span>
           </div>
         </div>
       </footer>

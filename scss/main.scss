@@ -26,6 +26,7 @@
 @use 'components/forms' as *;
 @use 'components/pricing' as *;
 @use 'components/timeline' as *;
+@use 'components/drawers' as *;
 @use 'components/data-table' as *;
 @use 'components/modals' as *;
 
@@ -52,6 +53,12 @@
     border-color: #e2e8f0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
+
+  .drawer-panel {
+    background: #ffffff;
+    border-left-color: #e2e8f0;
+    .drawer-title { color: #0f172a; }
+  }
 }
 
 #theme-cyber:checked ~ .app-wrapper {
@@ -61,7 +68,7 @@
     border-bottom-color: rgba(255, 0, 127, 0.4);
   }
 
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .drawer-panel {
     border-color: rgba(0, 246, 255, 0.4);
     box-shadow: 0 0 25px rgba(0, 246, 255, 0.2);
   }
