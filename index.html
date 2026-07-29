@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, corner ribbon cards, pulse status badges, zero-JS modal dialogs, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, range sliders, volume meters, corner ribbon cards, pulse status badges, zero-JS modal dialogs, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -39,7 +39,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.2.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.3.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -50,6 +50,7 @@
           </label>
 
           <ul class="nav-menu">
+            <li><a href="#sliders" class="nav-link">Sliders & Meters</a></li>
             <li><a href="#ribbons" class="nav-link">Ribbons & Badges</a></li>
             <li><a href="#search-filters" class="nav-link">Search System</a></li>
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
@@ -58,7 +59,6 @@
             <li><a href="#timeline" class="nav-link">Release Timeline</a></li>
             <li><a href="#pricing" class="nav-link">Pricing Plans</a></li>
             <li><a href="#forms" class="nav-link">Form Controls</a></li>
-            <li><a href="#alerts" class="nav-link">Alerts & Toasts</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
           </ul>
 
@@ -92,15 +92,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, corner ribbon strips, pulse status badges, zero-JS modal dialogs, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, range sliders, volume level meters, corner ribbon strips, pulse status badges, zero-JS modal dialogs, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#ribbons" class="btn btn-primary btn-lg">
-                🏷️ Corner Ribbons &amp; Badges
+              <a href="#sliders" class="btn btn-primary btn-lg">
+                🎛️ SCSS Sliders &amp; Meters
               </a>
-              <a href="#modal-export" class="btn btn-secondary btn-lg">
-                📦 Export SCSS Bundle
+              <a href="#ribbons" class="btn btn-secondary btn-lg">
+                🏷️ Corner Ribbons &amp; Badges
               </a>
             </div>
           </div>
@@ -113,28 +113,79 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_ribbons.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v2.2.0</span>
+              <span class="file-path">scss/components/_sliders.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v2.3.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Corner Ribbons &amp; Animated Pulse Badges</span>
-.ribbon-corner {
-  position: absolute;
-  top: 18px;
-  right: -32px;
-  transform: rotate(45deg);
-  background: <span class="token-variable">$color-brand-primary</span>;
-}
+<span class="token-comment">// Range Sliders &amp; Audio Level Meters</span>
+.form-range {
+  height: 8px;
+  background: rgba(15, 23, 42, 0.8);
 
-.status-pulse-badge .pulse-dot {
-  animation: pulseGlow 1.8s infinite;
+  &amp;::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: <span class="token-variable">$color-brand-primary</span>;
+  }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- CORNER RIBBONS & STATUS BADGES SECTION (NEW v2.2.0) -->
+      <!-- RANGE SLIDERS & AUDIO METERS SECTION (NEW v2.3.0) -->
+      <section id="sliders" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">INTERFACE CONTROLS &amp; AUDIO METERS</span>
+            <h2 style="margin-top: 8px;">Range Sliders &amp; Volume Level Gauges</h2>
+            <p>Custom styled HTML5 range controls and segmented SCSS audio/signal volume meters.</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_sliders.scss</span>
+        </div>
+
+        <div class="slider-card">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+            <!-- Range Slider 1 -->
+            <div>
+              <div class="range-group">
+                <div class="range-header">
+                  <span>Edge CDN Cache TTL Threshold</span>
+                  <span class="range-val">84% (86400s)</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="100" value="84" />
+              </div>
+
+              <div class="range-group">
+                <div class="range-header">
+                  <span>SCSS Minification Level</span>
+                  <span class="range-val">65% (Dart Sass)</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="100" value="65" />
+              </div>
+            </div>
+
+            <!-- Volume Level Meter -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span style="font-size: 0.875rem; font-weight: 600; color: #ffffff;">Audio Signal Volume / Latency Meter</span>
+                <span class="badge badge-success">-3.2 dB Peak</span>
+              </div>
+
+              <div class="volume-meter-container">
+                <div class="meter-segment" style="--meter-level: 30%;"></div>
+                <div class="meter-segment" style="--meter-level: 45%;"></div>
+                <div class="meter-segment" style="--meter-level: 60%;"></div>
+                <div class="meter-segment" style="--meter-level: 75%;"></div>
+                <div class="meter-segment meter-warning" style="--meter-level: 88%;"></div>
+                <div class="meter-segment meter-danger" style="--meter-level: 98%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORNER RIBBONS & STATUS BADGES SECTION -->
       <section id="ribbons" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -162,7 +213,7 @@
             <div class="ribbon-corner ribbon-success">ENTERPRISE</div>
             <div class="status-pulse-badge" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3); color: #818cf8; margin-bottom: 16px;">
               <span class="pulse-dot" style="background: #6366f1; box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);"></span>
-              <span>SCSS v2.2.0 ACTIVE</span>
+              <span>SCSS v2.3.0 ACTIVE</span>
             </div>
             <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Modular SCSS Core</h3>
             <p style="font-size: 0.875rem; color: #94a3b8;">Compiled with modern Dart Sass 3.0 module system with zero JS runtime overhead.</p>
@@ -195,15 +246,15 @@
         <div class="search-box-card">
           <div class="search-input-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="ribbons" />
+            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="sliders" />
             <span class="search-shortcut">⌘K</span>
           </div>
 
           <div class="filter-pills-row">
             <span style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; margin-right: 8px;">Filter Modules:</span>
-            <label for="filter-all" class="filter-pill-label">⚡ All Modules (17)</label>
+            <label for="filter-all" class="filter-pill-label">⚡ All Modules (18)</label>
             <label for="filter-abstracts" class="filter-pill-label">🎨 Abstracts &amp; Tokens (4)</label>
-            <label for="filter-components" class="filter-pill-label">🧩 UI Components (13)</label>
+            <label for="filter-components" class="filter-pill-label">🧩 UI Components (14)</label>
           </div>
         </div>
       </section>
@@ -317,6 +368,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v2.3.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v2.3.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Range Sliders &amp; Audio Level Meters Component (`scss/components/_sliders.scss`)**. Added custom styled HTML5 range controls and segmented SCSS volume level meters.
+            </div>
+          </div>
+
           <!-- Release v2.2.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -338,18 +401,6 @@
             </div>
             <div class="timeline-body">
               Integrated **Modal Dialog System Expansion (`scss/components/_modals.scss`)**. Added confirmation action dialogs and SCSS code export modals driven natively via `:target` selectors.
-            </div>
-          </div>
-
-          <!-- Release v2.0.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v2.0.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Search Input &amp; Active Filter Tag Pill Bar (`scss/components/_search.scss`)**. Added glassmorphism search control, keyboard shortcut badge (`⌘K`), and pure CSS filter tag pills.
             </div>
           </div>
         </div>
@@ -537,8 +588,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v2.2.0 Available</div>
-              <div class="alert-desc">Integrated Status Badges &amp; Pill Ribbon Strip components.</div>
+              <div class="alert-title">New SCSS Release v2.3.0 Available</div>
+              <div class="alert-desc">Integrated Range Sliders &amp; Volume Level Meter components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -735,7 +786,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, search, ribbons, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, search, ribbons, sliders, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -909,7 +960,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.2.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.3.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -948,8 +999,8 @@ $color-danger: #f43f5e;</pre>
 
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 16px; margin-bottom: 20px; font-family: monospace; font-size: 0.8125rem;">
             <div style="color: #818cf8; margin-bottom: 6px;">● Target File: css/style.css (Minified)</div>
-            <div style="color: #94a3b8; margin-bottom: 6px;">● Bundle Size: 15.2 KB (Gzip: 4.2 KB)</div>
-            <div style="color: #10b981;">● SHA256: 053bf694a35b27e90f88afe7b02d58838d28</div>
+            <div style="color: #94a3b8; margin-bottom: 6px;">● Bundle Size: 15.6 KB (Gzip: 4.3 KB)</div>
+            <div style="color: #10b981;">● SHA256: 7458b1d053bf694a35b27e90f88afe7b</div>
           </div>
 
           <div class="modal-actions">
@@ -993,18 +1044,18 @@ $color-danger: #f43f5e;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#sliders">_sliders.scss</a></li>
                 <li><a href="#ribbons">_ribbons.scss</a></li>
                 <li><a href="#search-filters">_search.scss</a></li>
-                <li><a href="#faq">_accordion.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#sliders">Sliders &amp; Level Meters</a></li>
                 <li><a href="#ribbons">Ribbons &amp; Badges</a></li>
                 <li><a href="#search-filters">Search System</a></li>
-                <li><a href="#faq">FAQ Accordion</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -1013,7 +1064,7 @@ $color-danger: #f43f5e;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v2.2.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v2.3.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="LICENSE">MIT License</a></li>
               </ul>
@@ -1022,7 +1073,7 @@ $color-danger: #f43f5e;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v2.2.0 • Status Badges &amp; Pill Ribbons</span>
+            <span>⚡ Release v2.3.0 • Range Sliders &amp; Audio Level Meters</span>
           </div>
         </div>
       </footer>

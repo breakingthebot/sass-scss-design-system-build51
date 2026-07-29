@@ -1,0 +1,98 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Range Sliders & Volume Meters
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.slider-card {
+  @include glass-card();
+  padding: $spacing-6;
+  margin-top: $spacing-6;
+}
+
+.range-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+  margin-bottom: $spacing-6;
+
+  .range-header {
+    @include flex-align(row, space-between, center);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+
+    .range-val {
+      font-family: $font-mono;
+      font-size: 0.8125rem;
+      color: $color-brand-light;
+    }
+  }
+
+  .form-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: $radius-full;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $color-brand-primary;
+      border: 3px solid #ffffff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.6);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+
+      &:hover {
+        transform: scale(1.15);
+        background: $color-brand-hover;
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $color-brand-primary;
+      border: 3px solid #ffffff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.6);
+    }
+  }
+}
+
+.volume-meter-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 48px;
+  background: rgba(15, 23, 42, 0.6);
+  padding: $spacing-3 $spacing-4;
+  border-radius: $radius-lg;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  .meter-segment {
+    flex: 1;
+    height: var(--meter-level, 50%);
+    background: linear-gradient(180deg, $color-cyan 0%, $color-brand-primary 100%);
+    border-radius: 3px;
+    transition: height 0.3s ease;
+
+    &.meter-warning {
+      background: linear-gradient(180deg, $color-warning 0%, $color-brand-primary 100%);
+    }
+
+    &.meter-danger {
+      background: linear-gradient(180deg, $color-danger 0%, $color-warning 100%);
+    }
+  }
+}
