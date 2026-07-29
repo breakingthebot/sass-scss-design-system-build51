@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -16,6 +16,11 @@
     <input type="radio" id="theme-light" name="theme-switch" class="state-hack" />
     <input type="radio" id="theme-cyber" name="theme-switch" class="state-hack" />
 
+    <!-- Pure CSS Code Inspector Tab Radios -->
+    <input type="radio" id="code-tab-vars" name="code-tabs" class="state-hack" checked />
+    <input type="radio" id="code-tab-mixins" name="code-tabs" class="state-hack" />
+    <input type="radio" id="code-tab-themes" name="code-tabs" class="state-hack" />
+
     <div class="app-wrapper">
       <!-- Sticky Navigation Header -->
       <header class="navbar">
@@ -23,7 +28,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.2.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.3.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -35,6 +40,7 @@
 
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
+            <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
             <li><a href="#charts" class="nav-link">Analytics Charts</a></li>
@@ -71,15 +77,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#charts" class="btn btn-primary btn-lg">
-                📊 SCSS Analytics Charts
+              <a href="#code-inspector" class="btn btn-primary btn-lg">
+                📋 Tabbed SCSS Code Inspector
               </a>
-              <a href="#themes" class="btn btn-secondary btn-lg">
-                🎨 SCSS Theme Token Generator
+              <a href="#charts" class="btn btn-secondary btn-lg">
+                📊 SCSS Analytics Charts
               </a>
             </div>
           </div>
@@ -92,24 +98,95 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_charts.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.2.0</span>
+              <span class="file-path">scss/abstracts/_mixins.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.3.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Pure SCSS Analytics Column Chart</span>
-.chart-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+<span class="token-comment">// Responsive Breakpoint Helper</span>
+<span class="token-keyword">@mixin</span> <span class="token-mixin">respond-to</span>(<span class="token-variable">$breakpoint</span>) {
+  <span class="token-keyword">@if</span> map.has-key(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>) {
+    <span class="token-keyword">@media</span> (max-width: map.get(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>)) {
+      <span class="token-keyword">@content</span>;
+    }
+  }
+}</pre>
+          </div>
+        </div>
+      </section>
 
-  .chart-bar-fill {
-    width: 100%;
-    max-width: 36px;
-    background: linear-gradient(180deg, <span class="token-variable">$color-brand-primary</span> 0%, rgba(79, 70, 229, 0.2) 100%);
-    height: var(--bar-height, 50%);
-    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      <!-- SCSS TABBED CODE INSPECTOR SECTION (NEW v1.3.0) -->
+      <section id="code-inspector" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">LIVE SCSS CODE INSPECTOR</span>
+            <h2 style="margin-top: 8px;">Interactive SCSS Source Snippets</h2>
+            <p>Click the code tabs below to inspect live SCSS source modules with zero JavaScript!</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/abstracts/</span>
+        </div>
+
+        <div class="codebox-container">
+          <div class="codebox-header">
+            <div class="codebox-tabs">
+              <label for="code-tab-vars" class="codebox-tab-label">_variables.scss</label>
+              <label for="code-tab-mixins" class="codebox-tab-label">_mixins.scss</label>
+              <label for="code-tab-themes" class="codebox-tab-label">_themes.scss</label>
+            </div>
+            <span style="font-family: monospace; font-size: 0.75rem; color: #94a3b8;">Sass 3.0 Module Spec</span>
+          </div>
+
+          <!-- Tab 1 Panel -->
+          <div class="codebox-panel codebox-panel-vars">
+            <pre>
+<span class="cm">// --- Design Tokens & Color Scales ---</span>
+<span class="vr">$color-brand-primary</span>: <span class="str">#4f46e5</span>;
+<span class="vr">$color-brand-hover</span>:   <span class="str">#4338ca</span>;
+<span class="vr">$color-slate-900</span>:     <span class="str">#0f172a</span>;
+<span class="vr">$color-slate-800</span>:     <span class="str">#1e293b</span>;
+<span class="vr">$color-success</span>:       <span class="str">#10b981</span>;
+<span class="vr">$color-warning</span>:       <span class="str">#f59e0b</span>;
+<span class="vr">$color-danger</span>:        <span class="str">#f43f5e</span>;
+
+<span class="cm">// --- Responsive Breakpoints Map ---</span>
+<span class="vr">$breakpoints</span>: (
+  <span class="str">'sm'</span>: 640px,
+  <span class="str">'md'</span>: 768px,
+  <span class="str">'lg'</span>: 1024px,
+  <span class="str">'xl'</span>: 1280px
+);</pre>
+          </div>
+
+          <!-- Tab 2 Panel -->
+          <div class="codebox-panel codebox-panel-mixins">
+            <pre>
+<span class="cm">// --- Responsive Media Query Mixin ---</span>
+<span class="kw">@mixin</span> <span class="mx">respond-to</span>(<span class="vr">$breakpoint</span>) {
+  <span class="kw">@if</span> map.has-key(<span class="vr">$breakpoints</span>, <span class="vr">$breakpoint</span>) {
+    <span class="kw">@media</span> (max-width: map.get(<span class="vr">$breakpoints</span>, <span class="vr">$breakpoint</span>)) {
+      <span class="kw">@content</span>;
+    }
+  }
+}
+
+<span class="cm">// --- Glassmorphism Container Mixin ---</span>
+<span class="kw">@mixin</span> <span class="mx">glass-card</span>(<span class="vr">$bg</span>: rgba(30, 41, 59, 0.7)) {
+  background: <span class="vr">$bg</span>;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: <span class="vr">$shadow-xl</span>;
+}</pre>
+          </div>
+
+          <!-- Tab 3 Panel -->
+          <div class="codebox-panel codebox-panel-themes">
+            <pre>
+<span class="cm">// --- SCSS @each Theme Token Generator ---</span>
+<span class="kw">@each</span> <span class="vr">$theme-name</span>, <span class="vr">$tokens</span> in <span class="vr">$themes</span> {
+  .theme-#{$theme-name} {
+    <span class="kw">@each</span> <span class="vr">$token</span>, <span class="vr">$value</span> in <span class="vr">$tokens</span> {
+      --#{$token}: #{$value};
+    }
   }
 }</pre>
           </div>
@@ -147,7 +224,7 @@
         </div>
       </section>
 
-      <!-- SCSS ANALYTICS & BAR CHARTS SECTION (NEW v1.2.0) -->
+      <!-- SCSS ANALYTICS & BAR CHARTS SECTION -->
       <section id="charts" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -228,7 +305,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -440,9 +517,9 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#code-inspector">_codebox.scss</a></li>
                 <li><a href="#themes">_themes.scss</a></li>
                 <li><a href="#charts">_charts.scss</a></li>
-                <li><a href="#architecture">_mixins.scss</a></li>
               </ul>
             </div>
 
@@ -451,8 +528,8 @@ $font-mono: 'Fira Code', monospace;</pre>
               <ul class="footer-links">
                 <li><a href="#components">Metric Widgets</a></li>
                 <li><a href="#charts">Analytics Charts</a></li>
+                <li><a href="#code-inspector">Code Inspector</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
-                <li><a href="#tokens">Design Token Swatches</a></li>
               </ul>
             </div>
 
@@ -460,7 +537,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.2.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.3.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -469,7 +546,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.2.0 • SCSS Analytics Charts</span>
+            <span>⚡ Release v1.3.0 • SCSS Code Inspector Box</span>
           </div>
         </div>
       </footer>

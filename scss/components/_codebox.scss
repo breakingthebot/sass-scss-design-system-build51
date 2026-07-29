@@ -1,0 +1,88 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Interactive Code Inspector Box
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.codebox-container {
+  @include glass-card();
+  padding: $spacing-6;
+  margin-top: $spacing-6;
+  border-color: rgba(99, 102, 241, 0.3);
+
+  .codebox-header {
+    @include flex-align(row, space-between, center);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: $spacing-4;
+    margin-bottom: $spacing-4;
+    flex-wrap: wrap;
+    gap: $spacing-3;
+
+    .codebox-tabs {
+      display: flex;
+      gap: $spacing-2;
+
+      .codebox-tab-label {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: $color-slate-400;
+        padding: 0.375rem 0.875rem;
+        border-radius: $radius-md;
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+
+        &:hover {
+          color: #ffffff;
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  .codebox-panel {
+    display: none;
+    animation: codeFadeIn 0.3s ease;
+
+    pre {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: $radius-md;
+      padding: $spacing-5;
+      font-family: $font-mono;
+      font-size: 0.8125rem;
+      color: #10b981;
+      overflow-x: auto;
+      line-height: 1.7;
+
+      .kw { color: #f43f5e; font-weight: bold; }
+      .mx { color: #818cf8; }
+      .vr { color: #38bdf8; }
+      .str { color: #fbbf24; }
+      .cm { color: $color-slate-500; font-style: italic; }
+    }
+  }
+}
+
+@keyframes codeFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#code-tab-vars:checked ~ .app-wrapper .codebox-container label[for="code-tab-vars"],
+#code-tab-mixins:checked ~ .app-wrapper .codebox-container label[for="code-tab-mixins"],
+#code-tab-themes:checked ~ .app-wrapper .codebox-container label[for="code-tab-themes"] {
+  background: $color-brand-light;
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #818cf8;
+}
+
+#code-tab-vars:checked ~ .app-wrapper .codebox-panel-vars,
+#code-tab-mixins:checked ~ .app-wrapper .codebox-panel-mixins,
+#code-tab-themes:checked ~ .app-wrapper .codebox-panel-themes {
+  display: block;
+}
