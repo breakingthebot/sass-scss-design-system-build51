@@ -27,6 +27,7 @@
 @use 'components/pricing' as *;
 @use 'components/timeline' as *;
 @use 'components/drawers' as *;
+@use 'components/accordion' as *;
 @use 'components/data-table' as *;
 @use 'components/modals' as *;
 
@@ -48,16 +49,17 @@
   }
 
   .hero-subtitle, p { color: #475569; }
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .data-table-wrapper {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .accordion-group, .data-table-wrapper {
     background: #ffffff;
     border-color: #e2e8f0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
 
-  .drawer-panel {
-    background: #ffffff;
-    border-left-color: #e2e8f0;
-    .drawer-title { color: #0f172a; }
+  .accordion-item {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    .accordion-label { color: #0f172a; }
+    .accordion-body { color: #475569; }
   }
 }
 
@@ -68,7 +70,7 @@
     border-bottom-color: rgba(255, 0, 127, 0.4);
   }
 
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .drawer-panel {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .accordion-group {
     border-color: rgba(0, 246, 255, 0.4);
     box-shadow: 0 0 25px rgba(0, 246, 255, 0.2);
   }

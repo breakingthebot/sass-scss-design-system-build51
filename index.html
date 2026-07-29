@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -22,6 +22,11 @@
     <input type="radio" id="code-tab-mixins" name="code-tabs" class="state-hack" />
     <input type="radio" id="code-tab-themes" name="code-tabs" class="state-hack" />
 
+    <!-- Pure CSS Accordion State Radios -->
+    <input type="radio" id="accordion-1" name="faq-accordion" class="state-hack" checked />
+    <input type="radio" id="accordion-2" name="faq-accordion" class="state-hack" />
+    <input type="radio" id="accordion-3" name="faq-accordion" class="state-hack" />
+
     <div class="app-wrapper">
       <!-- Sticky Navigation Header -->
       <header class="navbar">
@@ -29,7 +34,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.8.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.9.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -42,6 +47,7 @@
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
+            <li><a href="#faq" class="nav-link">FAQ Accordion</a></li>
             <li><a href="#timeline" class="nav-link">Release Timeline</a></li>
             <li><a href="#pricing" class="nav-link">Pricing Plans</a></li>
             <li><a href="#forms" class="nav-link">Form Controls</a></li>
@@ -61,7 +67,7 @@
             </div>
 
             <a href="#drawer-settings" class="btn btn-outline btn-sm">⚙️ Config Drawer</a>
-            <a href="#timeline" class="btn btn-primary btn-sm">Release History</a>
+            <a href="#faq" class="btn btn-primary btn-sm">Read FAQ</a>
           </div>
         </div>
       </header>
@@ -82,15 +88,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#drawer-settings" class="btn btn-primary btn-lg">
-                ⚙️ Slide-Over Config Drawer
+              <a href="#faq" class="btn btn-primary btn-lg">
+                🗂️ Zero-JS FAQ Accordion
               </a>
-              <a href="#timeline" class="btn btn-secondary btn-lg">
-                📜 Release Timeline &amp; History
+              <a href="#drawer-settings" class="btn btn-secondary btn-lg">
+                ⚙️ Slide-Over Config Drawer
               </a>
             </div>
           </div>
@@ -103,29 +109,73 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_drawers.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.8.0</span>
+              <span class="file-path">scss/components/_accordion.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.9.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Slide-Over Settings Drawer (:target trigger)</span>
-.drawer-overlay {
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(12px);
+<span class="token-comment">// Pure CSS Accordion Panel Trigger</span>
+.accordion-item {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  &amp;:target {
-    opacity: 1;
-    pointer-events: auto;
-
-    .drawer-panel { transform: translateX(0); }
+  .accordion-body {
+    max-height: 0;
+    transition: max-height 0.4s ease;
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- PURE CSS SLIDE-OVER SETTINGS DRAWER (TRIGGERED VIA :target) (NEW v1.8.0) -->
+      <!-- ACCORDION FAQ SECTION (NEW v1.9.0) -->
+      <section id="faq" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">DOCUMENTATION &amp; ARCHITECTURE FAQ</span>
+            <h2 style="margin-top: 8px;">Zero-JS Accordion Panels</h2>
+            <p>Click accordion headers below to expand technical answers with zero JavaScript overhead!</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_accordion.scss</span>
+        </div>
+
+        <div class="accordion-group">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item accordion-item-1">
+            <label for="accordion-1" class="accordion-label">
+              <span>⚡ How does ApexUI compile modular SCSS files into clean CSS?</span>
+              <span class="accordion-chevron">▼</span>
+            </label>
+            <div class="accordion-body">
+              ApexUI utilizes modern Dart Sass 3.0 module imports (`@use 'abstracts/variables' as *;`). The main entrypoint `scss/main.scss` aggregates all abstracts, base resets, and component stylesheets into a single minified `css/style.css` bundle via `npm run build:scss`.
+            </div>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="accordion-item accordion-item-2">
+            <label for="accordion-2" class="accordion-label">
+              <span>🎨 How do the `@each` SCSS theme token generators work?</span>
+              <span class="accordion-chevron">▼</span>
+            </label>
+            <div class="accordion-body">
+              The theme module `scss/abstracts/_themes.scss` defines a nested Sass map `$themes` for `dark`, `light`, and `cyber` palettes. An `@each` loop automatically emits CSS custom properties (`--bg-main`, `--brand-accent`), allowing instant theme switching with 0kb JavaScript.
+            </div>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item accordion-item-3">
+            <label for="accordion-3" class="accordion-label">
+              <span>⚙️ Is ApexUI completely dependency-free at runtime?</span>
+              <span class="accordion-chevron">▼</span>
+            </label>
+            <div class="accordion-body">
+              Yes! All interactive elements (theme toggles, tabbed code inspectors, slide-over config drawers, fixed toast notifications, and accordion dropdowns) are implemented using native HTML5 state controls (`:target`, `:checked` input state hacks).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PURE CSS SLIDE-OVER SETTINGS DRAWER (TRIGGERED VIA :target) -->
       <div id="drawer-settings" class="drawer-overlay">
         <div class="drawer-panel">
           <div class="drawer-header">
@@ -187,6 +237,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v1.9.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v1.9.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Accordion FAQ &amp; Collapsible Panel Component (`scss/components/_accordion.scss`)**. Added zero-JS accordion dropdown panels with rotating chevrons and max-height transitions.
+            </div>
+          </div>
+
           <!-- Release v1.8.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -208,18 +270,6 @@
             </div>
             <div class="timeline-body">
               Integrated **Interactive SCSS Release Timeline Component (`scss/components/_timeline.scss`)**. Added vertical pseudo-element gradient connectors and glowing hover node dots.
-            </div>
-          </div>
-
-          <!-- Release v1.6.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v1.6.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Subscription Pricing Cards Grid (`scss/components/_pricing.scss`)**. Added popular plan badges, feature checkmarks, and glassmorphism pricing cards.
             </div>
           </div>
         </div>
@@ -407,8 +457,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v1.8.0 Available</div>
-              <div class="alert-desc">Integrated Component Settings Slide-Over Drawer.</div>
+              <div class="alert-title">New SCSS Release v1.9.0 Available</div>
+              <div class="alert-desc">Integrated Accordion FAQ &amp; Collapsible Panel components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -605,7 +655,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -779,7 +829,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.8.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.9.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -828,18 +878,18 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#faq">_accordion.scss</a></li>
                 <li><a href="#drawer-settings">_drawers.scss</a></li>
                 <li><a href="#timeline">_timeline.scss</a></li>
-                <li><a href="#pricing">_pricing.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#faq">FAQ Accordion</a></li>
                 <li><a href="#drawer-settings">Config Drawer</a></li>
                 <li><a href="#timeline">Release Timeline</a></li>
-                <li><a href="#pricing">Pricing Cards</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -848,7 +898,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.8.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.9.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -857,7 +907,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.8.0 • Slide-Over Config Drawer</span>
+            <span>⚡ Release v1.9.0 • Zero-JS FAQ Accordion</span>
           </div>
         </div>
       </footer>
