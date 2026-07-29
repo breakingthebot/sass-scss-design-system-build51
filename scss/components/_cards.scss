@@ -1,17 +1,17 @@
 // ==========================================================================
-// SCSS Component: Cards & Bio Blocks
+// ApexUI Design System — SCSS Component: Enterprise UI Cards & Widgets
 // ==========================================================================
 
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
 .features-grid {
-  @include grid-auto(320px, 28px);
+  @include grid-autofit(320px, $spacing-6);
 }
 
 .feature-card {
-  @include glass-card($color-card, $border-glow);
-  padding: 32px;
+  @include glass-card();
+  padding: $spacing-8;
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -23,41 +23,77 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, $color-cyan, $color-magenta);
+    background: linear-gradient(90deg, $color-brand-primary, $color-cyan);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   &:hover {
     transform: translateY(-6px);
-    border-color: $color-cyan;
-    box-shadow: 0 16px 36px rgba(0, 246, 255, 0.15);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: $shadow-glow;
 
     &::before {
       opacity: 1;
     }
   }
 
-  .feature-icon {
-    width: 52px;
-    height: 52px;
+  .card-icon {
+    width: 48px;
+    height: 48px;
     border-radius: $radius-md;
-    background: rgba(139, 92, 246, 0.15);
-    border: 1px solid $color-purple;
-    @include flex-center();
-    font-size: 24px;
-    margin-bottom: 20px;
+    background: $color-brand-light;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    @include flex-align();
+    font-size: 1.5rem;
+    margin-bottom: $spacing-5;
   }
 
-  .feature-title {
-    font-size: 20px;
+  .card-title {
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: $spacing-2;
   }
 
-  .feature-desc {
-    font-size: 14px;
-    color: $text-muted;
+  .card-desc {
+    font-size: 0.9375rem;
+    color: $color-slate-400;
     line-height: 1.6;
+  }
+}
+
+// Enterprise Dashboard Metric Card Widget
+.metric-widget {
+  @include glass-card();
+  padding: $spacing-6;
+  border-left: 4px solid $color-brand-primary;
+
+  .metric-header {
+    @include flex-align(row, space-between, center);
+    margin-bottom: $spacing-3;
+  }
+
+  .metric-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $color-slate-400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-value {
+    font-family: $font-heading;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .metric-trend {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: $color-success;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 }

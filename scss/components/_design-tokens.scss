@@ -1,0 +1,39 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Design Tokens Inspector
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.token-swatch-grid {
+  @include grid-autofit(140px, $spacing-4);
+  margin-top: $spacing-6;
+}
+
+.swatch-card {
+  background: $color-slate-800;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-md;
+  padding: $spacing-3;
+  text-align: center;
+
+  .swatch-box {
+    width: 100%;
+    height: 48px;
+    border-radius: $radius-sm;
+    margin-bottom: $spacing-2;
+  }
+
+  .swatch-name {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .swatch-hex {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    color: $color-slate-400;
+  }
+}

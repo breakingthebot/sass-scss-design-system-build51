@@ -1,4 +1,4 @@
-# Build 51: Sass/SCSS Design System — Breaking The Bot Multiverse
+# Build 51: ApexUI — Enterprise Sass/SCSS Design System
 
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://sass-scss-design-system-build51.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
@@ -9,7 +9,7 @@
 
 ## 🌟 Overview
 
-**Build 51** showcases a professional-grade **Sass/SCSS Design System** featuring variables, mixins, functions, maps, control loops, and nested components compiled into clean, high-performance CSS. Applied to the **Breaking The Bot TikTok Character Worldbuilding Multiverse** landing page with 100% Pure CSS and **Zero JavaScript**.
+**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, component stylesheets, and zero JavaScript dependencies.
 
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
@@ -17,37 +17,38 @@
 
 ---
 
-## 📂 Modular SCSS Architecture
+## 📂 SCSS Directory Architecture
 
 ```
 Build_51/
 ├── scss/
 │   ├── abstracts/
-│   │   ├── _variables.scss      # Design tokens (colors, fonts, breakpoints)
-│   │   ├── _mixins.scss         # Flex, grid, glassmorphism, respond-to mixins
-│   │   └── _functions.scss      # rem() calculation functions
+│   │   ├── _variables.scss      # Design tokens (Indigo/Slate palette, spacing scale, breakpoints map)
+│   │   ├── _mixins.scss         # Media query @mixin respond-to, @mixin glass-card, @mixin flex-align
+│   │   └── _functions.scss      # rem() and em() pixel calculation functions
 │   ├── base/
-│   │   ├── _reset.scss          # CSS reset & state hacks
-│   │   └── _typography.scss     # Google Fonts & typography styles
+│   │   ├── _reset.scss          # Box-sizing, accessibility reset & state hacks
+│   │   └── _typography.scss     # Google Fonts (Inter, Outfit, Fira Code) & gradient text
 │   ├── components/
-│   │   ├── _navbar.scss         # Sticky navbar & mobile toggle
-│   │   ├── _buttons.scss        # Button variants
-│   │   ├── _hero.scss           # Hero section & animations
-│   │   ├── _cards.scss          # Feature & bio card blocks
-│   │   ├── _polaroid.scss       # 3D Polaroid flip card table
-│   │   ├── _radio.scss          # Sound wave spectrum visualizer
-│   │   └── _modals.scss         # Zero-JS :target dossier modals
-│   └── main.scss                # Primary entrypoint compiling to css/style.css
+│   │   ├── _navbar.scss         # Sticky navbar & mobile toggle drawer
+│   │   ├── _buttons.scss        # Button primary, secondary, outline mixins
+│   │   ├── _hero.scss           # Enterprise hero section & code inspector
+│   │   ├── _cards.scss          # Metric dashboard widgets & feature cards
+│   │   ├── _design-tokens.scss # Color swatch grid inspector
+│   │   ├── _data-table.scss    # Customer deployment records data table
+│   │   └── _modals.scss         # Zero-JS :target documentation inspect modals
+│   └── main.scss                # Primary entrypoint compiling cleanly to css/style.css
 ├── css/
-│   └── style.css                # Clean compiled CSS
-├── index.html                   # HTML5 landing page
-└── package.json                 # Sass compilation scripts
+│   └── style.css                # Clean compiled CSS output
+├── index.html                   # Enterprise HTML5 landing page
+└── package.json                 # Sass compilation build scripts
 ```
 
 ---
 
 ## 🔥 Key Highlights
 
+- **🎯 Standalone Professional Application**: Designed specifically for enterprise UI engineering teams.
 - **⚙️ SCSS Maps & Media Query Mixin**: Responsive breakpoint handling via `@mixin respond-to($breakpoint)` utilizing `map.has-key` and `map.get`.
-- **🔄 SCSS Control Loops**: Staggered animation delays for the 12 equalizer bars generated with `@for $i from 1 through 12`.
+- **📊 Real-World Component Suites**: Metric Dashboard Widgets, Customer Data Tables, Status Badges, Design Token Swatches.
 - **⚡ 0kb JS Executable Overhead**: 100% Pure CSS interactivity — zero script tags, zero framework runtimes.

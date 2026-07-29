@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Build 51 — Sass/SCSS Design System | Breaking The Bot Multiverse</title>
-    <meta name="description" content="Build 51 showcasing a professional-grade Sass/SCSS modular design system (variables, mixins, functions, nested components) compiled to clean CSS with Zero JavaScript." />
+    <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Hidden Pure CSS State Control Hack Inputs -->
+    <!-- Hidden Pure CSS Mobile Navigation State Input -->
     <input type="checkbox" id="nav-toggle" class="state-hack" />
 
     <div class="app-wrapper">
-      <!-- Sticky Navigation Header (SCSS Styled) -->
+      <!-- Sticky Navigation Header -->
       <header class="navbar">
         <div class="container nav-container">
           <a href="#" class="brand-logo">
-            🤖 SASS/SCSS <span class="gradient-text">DESIGN SYSTEM</span>
-            <span class="brand-badge">Build 51 • v1.0.0</span>
+            <span class="brand-icon">⚡</span>
+            <span>Apex<span class="text-brand-gradient">UI</span></span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -28,271 +29,372 @@
           </label>
 
           <ul class="nav-menu">
-            <li><a href="#scss-architecture" class="nav-link">SCSS Architecture</a></li>
-            <li><a href="#characters" class="nav-link">Character Bios</a></li>
-            <li><a href="#polaroid-table" class="nav-link">Polaroid Table</a></li>
-            <li><a href="#radio" class="nav-link">Resistance Radio</a></li>
-            <li><a href="#codex-brokebot" class="nav-link">BrokeBot Codex</a></li>
+            <li><a href="#architecture" class="nav-link">Architecture</a></li>
+            <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
+            <li><a href="#components" class="nav-link">UI Components</a></li>
+            <li><a href="#data-table" class="nav-link">Data Table</a></li>
+            <li><a href="#modal-inspect-variables" class="nav-link">Variables Spec</a></li>
           </ul>
 
           <div class="nav-actions">
-            <a href="#codex-vakhtang" class="btn btn-primary">Vakhtang Codex</a>
+            <a href="#modal-inspect-mixins" class="btn btn-outline btn-sm">Inspect Mixins</a>
+            <a href="#components" class="btn btn-primary btn-sm">Explore Components</a>
           </div>
         </div>
       </header>
 
-      <!-- Hero Section -->
+      <!-- Enterprise Hero Section -->
       <section class="hero">
         <div class="hero-glow-bg"></div>
         <div class="container hero-grid">
           <div class="hero-content">
             <div class="hero-tag">
-              <span>🎨 SASS/SCSS MODULAR ARCHITECTURE</span>
+              <span>🚀 PRODUCTION-READY SASS/SCSS INFRASTRUCTURE</span>
               <span>•</span>
-              <span>ZERO JAVASCRIPT</span>
+              <span>0KB JS PAYLOAD</span>
             </div>
 
             <h1 class="hero-title">
-              Modular SCSS <span class="gradient-text">Design System.</span>
+              Enterprise SCSS <span class="text-brand-gradient">Design System.</span>
             </h1>
 
             <p class="hero-subtitle">
-              Build 51 implements a full-featured Sass/SCSS design system — utilizing `$variables`, `@mixins`, `@functions`, and nested components compiled into high-performance, clean CSS.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#scss-architecture" class="btn btn-primary">
-                ⚙️ View SCSS Modules
+              <a href="#components" class="btn btn-primary btn-lg">
+                ⚡ Component Showcase
               </a>
-              <a href="#characters" class="btn btn-secondary">
-                👥 Explore Character Bios
+              <a href="#architecture" class="btn btn-secondary btn-lg">
+                ⚙️ SCSS Directory Specs
               </a>
             </div>
           </div>
 
-          <!-- Animated SCSS Preview Card -->
-          <div class="hero-visual">
-            <div class="feature-card" style="border-color: var(--accent-cyan, #00f6ff);">
-              <div style="font-family: monospace; font-size: 12px; color: #94a3b8; margin-bottom: 12px;">
-                // scss/abstracts/_mixins.scss
+          <!-- Interactive SCSS Code Inspector Card -->
+          <div class="code-inspector-card">
+            <div class="card-header-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
               </div>
-              <pre style="font-family: monospace; font-size: 13px; color: #10b981; background: #000; padding: 16px; border-radius: 8px; overflow-x: auto;">
-@mixin glass-card($bg: $color-card) {
-  background: $bg;
-  border: 1px solid $border-glow;
-  backdrop-filter: blur(16px);
-  box-shadow: $shadow-card;
+              <span class="file-path">scss/abstracts/_mixins.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.0</span>
+            </div>
+
+            <pre>
+<span class="token-comment">// Responsive Breakpoint Helper</span>
+<span class="token-keyword">@mixin</span> <span class="token-mixin">respond-to</span>(<span class="token-variable">$breakpoint</span>) {
+  <span class="token-keyword">@if</span> map.has-key(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>) {
+    <span class="token-keyword">@media</span> (max-width: map.get(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>)) {
+      <span class="token-keyword">@content</span>;
+    }
+  }
 }
 
+<span class="token-comment">// Glassmorphism Container Mixin</span>
+<span class="token-keyword">@mixin</span> <span class="token-mixin">glass-card</span>(<span class="token-variable">$bg</span>: rgba(30, 41, 59, 0.7)) {
+  background: <span class="token-variable">$bg</span>;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: <span class="token-variable">$shadow-xl</span>;
+}</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCSS MODULAR ARCHITECTURE SECTION -->
+      <section id="architecture" class="container" style="padding: 80px 24px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 50px auto;">
+          <span class="badge badge-brand">SCSS FILE ARCHITECTURE</span>
+          <h2 style="margin-top: 12px;">Structured for Scale</h2>
+          <p>Divided cleanly into abstracts, base resets, and component-level stylesheets for effortless maintenance.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="card-icon">🎨</div>
+            <h3 class="card-title">`scss/abstracts/`</h3>
+            <p class="card-desc">Contains `_variables.scss` tokens, `@mixin respond-to` media queries, and `rem()` calculation functions.</p>
+            <a href="#modal-inspect-variables" class="btn btn-outline btn-sm" style="margin-top: 16px;">Inspect Variables</a>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">`scss/base/`</h3>
+            <p class="card-desc">Establishes typography hierarchy (`Inter`, `Outfit`, `Fira Code`), CSS resets, and focus ring accessibility states.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon">🧩</div>
+            <h3 class="card-title">`scss/components/`</h3>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, data tables, and modals.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN TOKENS INSPECTOR SECTION -->
+      <section id="tokens" style="background: rgba(15, 23, 42, 0.6); padding: 80px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+        <div class="container">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
+            <div>
+              <span class="badge badge-brand">DESIGN TOKEN PALETTE</span>
+              <h2 style="margin-top: 8px;">Color Swatches & Scales</h2>
+            </div>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: #94a3b8;">scss/abstracts/_variables.scss</span>
+          </div>
+
+          <div class="token-swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #4f46e5;"></div>
+              <div class="swatch-name">$brand-primary</div>
+              <div class="swatch-hex">#4f46e5</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #0f172a;"></div>
+              <div class="swatch-name">$slate-900</div>
+              <div class="swatch-hex">#0f172a</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #10b981;"></div>
+              <div class="swatch-name">$color-success</div>
+              <div class="swatch-hex">#10b981</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #f59e0b;"></div>
+              <div class="swatch-name">$color-warning</div>
+              <div class="swatch-hex">#f59e0b</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #f43f5e;"></div>
+              <div class="swatch-name">$color-danger</div>
+              <div class="swatch-hex">#f43f5e</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #06b6d4;"></div>
+              <div class="swatch-name">$color-cyan</div>
+              <div class="swatch-hex">#06b6d4</div>
+            </div>
+
+            <div class="swatch-card">
+              <div class="swatch-box" style="background: #8b5cf6;"></div>
+              <div class="swatch-name">$color-accent</div>
+              <div class="swatch-hex">#8b5cf6</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENTERPRISE UI COMPONENTS SHOWCASE SECTION -->
+      <section id="components" class="container" style="padding: 100px 24px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 50px auto;">
+          <span class="badge badge-brand">UI COMPONENT PREVIEWS</span>
+          <h2 style="margin-top: 12px;">Enterprise Dashboard Widgets</h2>
+          <p>Pre-styled UI widgets built with SCSS nested components and flex/grid layout mixins.</p>
+        </div>
+
+        <!-- Metric Cards Row -->
+        <div class="features-grid" style="margin-bottom: 48px;">
+          <div class="metric-widget">
+            <div class="metric-header">
+              <span class="metric-title">Monthly Recurring Revenue</span>
+              <span class="badge badge-success">+18.4%</span>
+            </div>
+            <div class="metric-value">$142,850</div>
+            <div class="metric-trend">↑ $22,400 from last month</div>
+          </div>
+
+          <div class="metric-widget" style="border-left-color: #06b6d4;">
+            <div class="metric-header">
+              <span class="metric-title">Active Platform Users</span>
+              <span class="badge badge-brand">+12.1%</span>
+            </div>
+            <div class="metric-value">48,290</div>
+            <div class="metric-trend" style="color: #38bdf8;">↑ 5,200 active sessions</div>
+          </div>
+
+          <div class="metric-widget" style="border-left-color: #8b5cf6;">
+            <div class="metric-header">
+              <span class="metric-title">API Response Latency</span>
+              <span class="badge badge-success">Optimal</span>
+            </div>
+            <div class="metric-value">18.4 ms</div>
+            <div class="metric-trend">99.99% Global Uptime</div>
+          </div>
+        </div>
+
+        <!-- Buttons Showcase -->
+        <div class="code-inspector-card" style="margin-bottom: 48px;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Buttons & Status Badges</h3>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <a href="#" class="btn btn-primary">Primary Button</a>
+            <a href="#" class="btn btn-secondary">Secondary Button</a>
+            <a href="#" class="btn btn-outline">Outline Button</a>
+            <a href="#" class="btn btn-primary btn-sm">Small Button</a>
+            <span class="badge badge-brand">Brand Badge</span>
+            <span class="badge badge-success">Success Badge</span>
+            <span class="badge badge-warning">Warning Badge</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENTERPRISE DATA TABLE SECTION -->
+      <section id="data-table" class="container" style="padding: 0 24px 100px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">DATA TABLE COMPONENT</span>
+            <h2 style="margin-top: 8px;">Customer Deployment Records</h2>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #94a3b8;">scss/components/_data-table.scss</span>
+        </div>
+
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Customer / Org</th>
+                <th>Environment</th>
+                <th>Status</th>
+                <th>Latency</th>
+                <th>SCSS Bundle</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Acme Global Corp</strong></td>
+                <td>Production (US East)</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>14 ms</td>
+                <td>12.4 KB</td>
+                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+              </tr>
+              <tr>
+                <td><strong>Starlight Systems</strong></td>
+                <td>Production (EU West)</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>18 ms</td>
+                <td>11.8 KB</td>
+                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+              </tr>
+              <tr>
+                <td><strong>CyberPulse Labs</strong></td>
+                <td>Staging (AP East)</td>
+                <td><span class="badge badge-warning">Deploying</span></td>
+                <td>42 ms</td>
+                <td>14.1 KB</td>
+                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ZERO-JS MODAL INSPECTORS (TRIGGERED VIA :target) -->
+      <div id="modal-inspect-variables" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
+          <h2 class="modal-title">⚙️ `scss/abstracts/_variables.scss`</h2>
+          <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 16px;">
+            Core design token definitions compiled cleanly with zero JS overhead.
+          </p>
+
+          <pre style="background: rgba(0, 0, 0, 0.6); padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.8125rem; color: #10b981;">
+$color-brand-primary: #4f46e5;
+$color-brand-hover: #4338ca;
+$color-slate-900: #0f172a;
+$color-success: #10b981;
+$color-warning: #f59e0b;
+$color-danger: #f43f5e;
+
+$font-sans: 'Inter', sans-serif;
+$font-heading: 'Outfit', sans-serif;
+$font-mono: 'Fira Code', monospace;</pre>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+            <a href="#" class="btn btn-primary btn-sm">Close Inspector</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-inspect-mixins" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
+          <h2 class="modal-title">⚡ `scss/abstracts/_mixins.scss`</h2>
+          <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 16px;">
+            Responsive media query mixin and glassmorphism helpers.
+          </p>
+
+          <pre style="background: rgba(0, 0, 0, 0.6); padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.8125rem; color: #818cf8;">
 @mixin respond-to($breakpoint) {
-  @if map.has-key($breakpoints, $bp) {
-    @media (max-width: map.get($breakpoints, $bp)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   }
 }</pre>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- SCSS ARCHITECTURE MODULES SECTION -->
-      <section id="scss-architecture" class="features-grid container" style="padding: 80px 24px;">
-        <div class="feature-card">
-          <div class="feature-icon">🎨</div>
-          <h3 class="feature-title">`scss/abstracts/_variables.scss`</h3>
-          <p class="feature-desc">Houses all design tokens including `$color-cyan`, `$color-magenta`, `$font-heading`, `$font-body`, and `$breakpoints` map.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">`scss/abstracts/_mixins.scss`</h3>
-          <p class="feature-desc">Provides responsive media query `@mixin respond-to`, `@mixin flex-center`, `@mixin grid-auto`, and `@mixin glass-card` utilities.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3 class="feature-title">`scss/components/*.scss`</h3>
-          <p class="feature-desc">Modular SCSS component stylesheets for navbar, buttons, hero, cards, polaroid table, radio visualizer, and dossier modals.</p>
-        </div>
-      </section>
-
-      <!-- FULL CHARACTER BIOS SECTION -->
-      <section id="characters" class="container" style="padding: 60px 24px;">
-        <div class="section-tag">MULTIVERSE CHARACTERS</div>
-        <h2 class="section-title">Character Dossiers (SCSS Styled)</h2>
-
-        <div class="features-grid" style="margin-top: 32px;">
-          <div class="feature-card">
-            <span style="font-size: 36px;">🗝️</span>
-            <h3 class="feature-title" style="margin-top: 12px;">Vakhtang (The Collector)</h3>
-            <p style="font-size: 12px; color: #ff007f; font-weight: bold; margin-bottom: 8px;">
-              "Darling, I don't make threats. I make appointments."
-            </p>
-            <p class="feature-desc">Ancient corporate-style demon who traps souls in binding contracts on a rusted metal table under a flickering hanging lightbulb.</p>
-            <a href="#codex-vakhtang" class="btn btn-secondary" style="margin-top: 16px; font-size: 12px;">📖 Open Codex</a>
-          </div>
-
-          <div class="feature-card">
-            <span style="font-size: 36px;">🤡</span>
-            <h3 class="feature-title" style="margin-top: 12px;">BrokeBot (Flagship Villain)</h3>
-            <p style="font-size: 12px; color: #00f6ff; font-weight: bold; margin-bottom: 8px;">
-              "Kill me? Sweetheart. Delete the sky."
-            </p>
-            <p class="feature-desc">Distributed cloud threat existing across all networks. Skeletal android clown with a cracked porcelain face and neon cable mane.</p>
-            <a href="#codex-brokebot" class="btn btn-primary" style="margin-top: 16px; font-size: 12px;">📖 Open Codex</a>
-          </div>
-
-          <div class="feature-card">
-            <span style="font-size: 36px;">🧙‍♂️</span>
-            <h3 class="feature-title" style="margin-top: 12px;">BTB Wizard (Immortal Custodian)</h3>
-            <p style="font-size: 12px; color: #8b5cf6; font-weight: bold; margin-bottom: 8px;">
-              "It had forgotten its purpose."
-            </p>
-            <p class="feature-desc">Immortal custodian who preserves and repairs broken entities that have lost their purpose in the digital matrix.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3D POLAROID TABLE CHAMBER SECTION -->
-      <section id="polaroid-table" class="collector-section">
-        <div class="container">
-          <div class="collector-chamber">
-            <div class="hanging-lightbulb">💡</div>
-
-            <div style="text-align: center; max-width: 600px; margin: 0 auto 32px auto;">
-              <span class="section-tag" style="color: #ff007f;">SCSS 3D TRANSFORM ENGINE</span>
-              <h3 style="font-size: 28px; font-weight: 800; color: #fff; margin-top: 8px;">
-                Vakhtang's Polaroid Chamber (Hover to Flip)
-              </h3>
-              <p style="font-size: 14px; color: #94a3b8; margin-top: 6px;">
-                Hover over any polaroid card to trigger SCSS-nested 3D card flips (`rotateY(180deg)`).
-              </p>
-            </div>
-
-            <div class="polaroid-table-grid">
-              <div class="polaroid-card">
-                <div class="polaroid-inner">
-                  <div class="polaroid-front">
-                    <div class="polaroid-img">👤</div>
-                    <div class="polaroid-caption">Captive #01: CEO Vance</div>
-                  </div>
-                  <div class="polaroid-back">
-                    <span class="contract-stamp">SOUL BOUND</span>
-                    <p class="contract-terms">"Asset liquidity transferred to Bot Inc. in perpetuity."</p>
-                    <div class="contract-signature">— Vakhtang</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="polaroid-card">
-                <div class="polaroid-inner">
-                  <div class="polaroid-front">
-                    <div class="polaroid-img">🤖</div>
-                    <div class="polaroid-caption">Captive #02: Agent 409</div>
-                  </div>
-                  <div class="polaroid-back">
-                    <span class="contract-stamp">PROTOCOL RESET</span>
-                    <p class="contract-terms">"Memory bank wiped under corporate code."</p>
-                    <div class="contract-signature">— Vakhtang</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="polaroid-card">
-                <div class="polaroid-inner">
-                  <div class="polaroid-front">
-                    <div class="polaroid-img">⚡</div>
-                    <div class="polaroid-caption">Captive #03: Outcast Lead</div>
-                  </div>
-                  <div class="polaroid-back">
-                    <span class="contract-stamp">SIGNAL SEALED</span>
-                    <p class="contract-terms">"Signal frequency trapped inside Polaroid glass."</p>
-                    <div class="contract-signature">— Vakhtang</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESISTANCE RADIO VISUALIZER SECTION -->
-      <section id="radio" class="container" style="padding: 80px 24px;">
-        <div class="section-tag" style="color: #00f6ff;">RESISTANCE BROADCAST</div>
-        <h2 class="section-title">@Neon_Underground Spectrum</h2>
-
-        <div class="radio-spectrum-container">
-          <div style="font-size: 13px; color: #00f6ff; font-weight: 800; text-transform: uppercase;">
-            📻 FREQUENCY: 808.4 MHZ • SCSS @FOR LOOP EQUALIZER
-          </div>
-
-          <div class="spectrum-bars-row">
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-            <div class="equalizer-bar"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PURE CSS MODALS -->
-      <div id="codex-brokebot" class="modal-overlay">
-        <div class="modal-card">
-          <a href="#" class="modal-close-btn">✕</a>
-          <h2 class="modal-title">🤡 BrokeBot Codex</h2>
-          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-top: 12px;">
-            "Kill me? Sweetheart. Delete the sky." — Skeletal android clown with cloud-wide network persistence.
-          </p>
-          <div style="margin-top: 20px; text-align: right;">
-            <a href="#" class="btn btn-primary">Close Dossier</a>
+          <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+            <a href="#" class="btn btn-secondary btn-sm">Close Inspector</a>
           </div>
         </div>
       </div>
 
-      <div id="codex-vakhtang" class="modal-overlay">
-        <div class="modal-card">
-          <a href="#" class="modal-close-btn">✕</a>
-          <h2 class="modal-title">🗝️ Vakhtang Codex</h2>
-          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-top: 12px;">
-            "Darling, I don't make threats. I make appointments." — Ancient corporate demon trapping souls on her rusted metal table.
-          </p>
-          <div style="margin-top: 20px; text-align: right;">
-            <a href="#" class="btn btn-secondary">Close Dossier</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
+      <!-- Enterprise Footer -->
       <footer class="footer">
         <div class="container">
           <div class="footer-grid">
             <div>
-              <a href="#" class="brand-logo">
-                🤖 SASS/SCSS <span class="gradient-text">SYSTEM</span>
+              <a href="#" class="brand-logo" style="margin-bottom: 12px;">
+                <span class="brand-icon">⚡</span>
+                <span>Apex<span class="text-brand-gradient">UI</span></span>
               </a>
-              <p style="font-size: 14px; color: #94a3b8; margin-top: 8px;">Build 51 Sass/SCSS design system for Breaking The Bot Multiverse.</p>
+              <p style="font-size: 0.875rem; color: #94a3b8;">
+                Production-ready SCSS design system & enterprise UI component library. Built with 100% Pure Sass/SCSS and Zero JavaScript.
+              </p>
             </div>
+
             <div>
-              <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px;">SCSS Modules</h4>
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
-                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_variables.scss</a></li>
-                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_mixins.scss</a></li>
-                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_functions.scss</a></li>
+              <h4 class="footer-col-title">SCSS Modules</h4>
+              <ul class="footer-links">
+                <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#modal-inspect-mixins">_mixins.scss</a></li>
+                <li><a href="#architecture">_functions.scss</a></li>
+                <li><a href="#architecture">_reset.scss</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="footer-col-title">Components</h4>
+              <ul class="footer-links">
+                <li><a href="#components">Metric Widgets</a></li>
+                <li><a href="#components">Status Badges</a></li>
+                <li><a href="#data-table">Enterprise Data Table</a></li>
+                <li><a href="#tokens">Design Token Swatches</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="footer-col-title">Documentation</h4>
+              <ul class="footer-links">
+                <li><a href="README.md">System Architecture Guide</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.0.0</a></li>
+                <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
+                <li><a href="#">MIT License</a></li>
               </ul>
             </div>
           </div>
+
           <div class="footer-bottom">
-            <span>© 2026 Build 51 — Sass/SCSS Design System. 100% Pure CSS output.</span>
-            <span>⚡ v1.0.0 Release</span>
+            <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
+            <span>⚡ 100% Clean Compiled CSS • Zero JavaScript Payload</span>
           </div>
         </div>
       </footer>

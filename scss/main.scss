@@ -1,5 +1,5 @@
 // ==========================================================================
-// SCSS Main Entrypoint: Build 51 Design System
+// ApexUI Enterprise Design System — SCSS Main Entrypoint
 // ==========================================================================
 
 // 1. Abstracts
@@ -7,7 +7,7 @@
 @use 'abstracts/mixins' as *;
 @use 'abstracts/functions' as *;
 
-// 2. Base
+// 2. Base Styles
 @use 'base/reset' as *;
 @use 'base/typography' as *;
 
@@ -16,25 +16,54 @@
 @use 'components/buttons' as *;
 @use 'components/hero' as *;
 @use 'components/cards' as *;
-@use 'components/polaroid' as *;
-@use 'components/radio' as *;
+@use 'components/design-tokens' as *;
+@use 'components/data-table' as *;
 @use 'components/modals' as *;
 
-// 4. Custom Component Utilities
+// 4. Footer Component
 .footer {
-  border-top: 1px solid $border-glow;
-  padding: 60px 0 30px 0;
-  background: rgba(6, 8, 18, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: $spacing-16 0 $spacing-8 0;
+  background: rgba(15, 23, 42, 0.95);
 
   .footer-grid {
-    @include grid-auto(220px, 40px);
+    @include grid-autofit(200px, $spacing-10);
+    margin-bottom: $spacing-10;
+  }
+
+  .footer-col-title {
+    font-family: $font-heading;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-4;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+
+    a {
+      color: $color-slate-400;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
   }
 
   .footer-bottom {
-    @include flex-center(row, space-between, center);
+    @include flex-align(row, space-between, center);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 24px;
-    font-size: 13px;
-    color: $text-muted;
+    padding-top: $spacing-6;
+    font-size: 0.8125rem;
+    color: $color-slate-500;
   }
 }

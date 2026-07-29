@@ -1,48 +1,60 @@
 // ==========================================================================
-// SCSS Base: Typography & Gradient Text Utilities
+// ApexUI Design System — SCSS Base: Typography & Gradient Text
 // ==========================================================================
 
 @use '../abstracts/variables' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;
-  letter-spacing: -0.5px;
-  color: $text-main;
+  color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, $color-cyan, $color-magenta, $color-purple);
-  background-size: 200% 200%;
+h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; }
+h2 { font-size: 2.25rem; font-weight: 800; line-height: 1.25; }
+h3 { font-size: 1.5rem; font-weight: 700; line-height: 1.33; }
+h4 { font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
+
+p {
+  color: $color-slate-400;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, $color-brand-primary 0%, #818cf8 50%, $color-cyan 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 6s ease infinite;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.section-tag {
-  color: $color-purple;
-  font-size: 13px;
-  font-weight: 800;
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-1;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: $radius-full;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 12px;
-}
+  letter-spacing: 0.05em;
 
-.section-title {
-  font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
+  &-brand {
+    background: $color-brand-light;
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+  }
 
-.section-subtitle {
-  font-size: 16px;
-  color: $text-muted;
+  &-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: $color-success;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  &-warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: $color-warning;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
 }
