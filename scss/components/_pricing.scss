@@ -1,0 +1,111 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Subscription Pricing Cards
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.pricing-grid {
+  @include grid-autofit(300px, $spacing-6);
+  margin-top: $spacing-6;
+}
+
+.pricing-card {
+  @include glass-card();
+  padding: $spacing-8;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.pricing-popular {
+    border-color: $color-brand-primary;
+    box-shadow: $shadow-glow;
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: $spacing-6;
+      background: linear-gradient(135deg, $color-brand-primary, $color-cyan);
+      color: #ffffff;
+      padding: 2px 12px;
+      border-radius: $radius-full;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  .pricing-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: $spacing-5;
+    margin-bottom: $spacing-6;
+  }
+
+  .pricing-title {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .pricing-desc {
+    font-size: 0.875rem;
+    color: $color-slate-400;
+    margin-top: 4px;
+  }
+
+  .pricing-price-group {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-top: $spacing-4;
+
+    .price-currency {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-slate-300;
+    }
+
+    .price-amount {
+      font-family: $font-heading;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 0.875rem;
+      color: $color-slate-400;
+    }
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+    margin-bottom: $spacing-8;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: $spacing-3;
+      font-size: 0.875rem;
+      color: $color-slate-300;
+
+      .check-icon {
+        color: $color-success;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .pricing-cta {
+    margin-top: auto;
+  }
+}

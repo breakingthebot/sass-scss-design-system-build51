@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -29,7 +29,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.5.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.6.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -42,12 +42,12 @@
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
+            <li><a href="#pricing" class="nav-link">Pricing Plans</a></li>
             <li><a href="#forms" class="nav-link">Form Controls</a></li>
             <li><a href="#alerts" class="nav-link">Alerts & Toasts</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
             <li><a href="#charts" class="nav-link">Analytics Charts</a></li>
-            <li><a href="#components" class="nav-link">UI Components</a></li>
             <li><a href="#data-table" class="nav-link">Data Table</a></li>
           </ul>
 
@@ -59,7 +59,7 @@
               <label for="theme-cyber" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #00f6ff; user-select: none;">⚡ Cyber</label>
             </div>
 
-            <a href="#components" class="btn btn-primary btn-sm">Explore Components</a>
+            <a href="#pricing" class="btn btn-primary btn-sm">Get Started</a>
           </div>
         </div>
       </header>
@@ -80,15 +80,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#forms" class="btn btn-primary btn-lg">
-                📝 Form Controls Showcase
+              <a href="#pricing" class="btn btn-primary btn-lg">
+                🏷️ Subscription Pricing Plans
               </a>
-              <a href="#alerts" class="btn btn-secondary btn-lg">
-                🔔 System Alerts & Toasts
+              <a href="#forms" class="btn btn-secondary btn-lg">
+                📝 Form Controls Showcase
               </a>
             </div>
           </div>
@@ -101,27 +101,109 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_forms.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.5.0</span>
+              <span class="file-path">scss/components/_pricing.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.6.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Form Control Focus Ring Mixin</span>
-.form-control {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: <span class="token-variable">$radius-md</span>;
+<span class="token-comment">// Subscription Pricing Grid Layout</span>
+.pricing-grid {
+  <span class="token-keyword">@include</span> <span class="token-mixin">grid-autofit</span>(300px, <span class="token-variable">$spacing-6</span>);
+}
 
-  &amp;:focus {
-    border-color: <span class="token-variable">$color-brand-primary</span>;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
-  }
+.pricing-card.pricing-popular {
+  border-color: <span class="token-variable">$color-brand-primary</span>;
+  box-shadow: <span class="token-variable">$shadow-glow</span>;
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- FORM CONTROLS & INPUT GROUPS SECTION (NEW v1.5.0) -->
+      <!-- SUBSCRIPTION PRICING CARDS SECTION (NEW v1.6.0) -->
+      <section id="pricing" class="container" style="padding: 60px 24px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 50px auto;">
+          <span class="badge badge-brand">SASS SUBSCRIPTION TIERS</span>
+          <h2 style="margin-top: 12px;">Enterprise Pricing Architecture</h2>
+          <p>Flexible plan options styled with SCSS grid auto-fit mixins and hover elevation cards.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Developer Tier -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Developer</h3>
+              <p class="pricing-desc">For solo engineers &amp; open-source projects.</p>
+              <div class="pricing-price-group">
+                <span class="price-currency">$</span>
+                <span class="price-amount">0</span>
+                <span class="price-period">/ mo</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check-icon">✓</span> Full SCSS Source Code Access</li>
+              <li><span class="check-icon">✓</span> Community Theme Token Generators</li>
+              <li><span class="check-icon">✓</span> Up to 5 Active Edge Projects</li>
+              <li><span class="check-icon">✓</span> MIT Open Source License</li>
+            </ul>
+
+            <div class="pricing-cta">
+              <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started Free</a>
+            </div>
+          </div>
+
+          <!-- Team Pro Tier (Popular) -->
+          <div class="pricing-card pricing-popular">
+            <span class="popular-badge">★ MOST POPULAR</span>
+            <div class="pricing-header">
+              <h3 class="pricing-title">Team Pro</h3>
+              <p class="pricing-desc">For growing product &amp; design engineering teams.</p>
+              <div class="pricing-price-group">
+                <span class="price-currency">$</span>
+                <span class="price-amount">49</span>
+                <span class="price-period">/ mo</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check-icon">✓</span> Everything in Developer</li>
+              <li><span class="check-icon">✓</span> Unlimited Theme Custom Properties</li>
+              <li><span class="check-icon">✓</span> Live SCSS Analytics &amp; Chart Widgets</li>
+              <li><span class="check-icon">✓</span> Priority Slack &amp; Email Support</li>
+            </ul>
+
+            <div class="pricing-cta">
+              <a href="#" class="btn btn-primary" style="width: 100%;">Start 14-Day Trial</a>
+            </div>
+          </div>
+
+          <!-- Enterprise Tier -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Enterprise</h3>
+              <p class="pricing-desc">For large-scale global software organizations.</p>
+              <div class="pricing-price-group">
+                <span class="price-currency">$</span>
+                <span class="price-amount">199</span>
+                <span class="price-period">/ mo</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check-icon">✓</span> Dedicated SCSS Design Token Audit</li>
+              <li><span class="check-icon">✓</span> Custom Brand Theme SCSS Generators</li>
+              <li><span class="check-icon">✓</span> 99.99% Guaranteed SLA Uptime</li>
+              <li><span class="check-icon">✓</span> 24/7 Dedicated Solutions Engineer</li>
+            </ul>
+
+            <div class="pricing-cta">
+              <a href="#" class="btn btn-outline" style="width: 100%;">Contact Enterprise</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM CONTROLS & INPUT GROUPS SECTION -->
       <section id="forms" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -219,8 +301,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v1.5.0 Available</div>
-              <div class="alert-desc">Integrated Enterprise Form Controls & Input Group components.</div>
+              <div class="alert-title">New SCSS Release v1.6.0 Available</div>
+              <div class="alert-desc">Integrated Subscription Pricing Cards components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -417,7 +499,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -591,7 +673,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.5.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.6.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -640,8 +722,8 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#pricing">_pricing.scss</a></li>
                 <li><a href="#forms">_forms.scss</a></li>
-                <li><a href="#alerts">_alerts.scss</a></li>
                 <li><a href="#themes">_themes.scss</a></li>
               </ul>
             </div>
@@ -649,9 +731,9 @@ $font-mono: 'Fira Code', monospace;</pre>
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#pricing">Pricing Cards</a></li>
                 <li><a href="#forms">Form Controls</a></li>
                 <li><a href="#alerts">System Alerts</a></li>
-                <li><a href="#components">Metric Widgets</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -660,7 +742,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.5.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.6.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -669,7 +751,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.5.0 • Enterprise Form Controls</span>
+            <span>⚡ Release v1.6.0 • Subscription Pricing Cards</span>
           </div>
         </div>
       </footer>
