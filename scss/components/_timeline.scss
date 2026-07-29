@@ -1,0 +1,80 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Interactive Release Timeline
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.timeline {
+  position: relative;
+  padding-left: $spacing-8;
+  margin-top: $spacing-6;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, $color-brand-primary 0%, rgba(99, 102, 241, 0.2) 100%);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: $spacing-8;
+    @include glass-card();
+    padding: $spacing-6;
+    border-left: 3px solid $color-brand-primary;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateX(6px);
+      border-color: $color-cyan;
+
+      .timeline-dot {
+        background: $color-cyan;
+        box-shadow: 0 0 16px $color-cyan;
+      }
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: $spacing-6;
+      left: -43px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: $color-brand-primary;
+      border: 3px solid $color-slate-900;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-header {
+      @include flex-align(row, space-between, center);
+      margin-bottom: $spacing-3;
+      flex-wrap: wrap;
+      gap: $spacing-2;
+
+      .timeline-version {
+        font-family: $font-heading;
+        font-size: 1.125rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      .timeline-date {
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        color: $color-slate-400;
+      }
+    }
+
+    .timeline-body {
+      font-size: 0.875rem;
+      color: $color-slate-300;
+      line-height: 1.6;
+    }
+  }
+}
