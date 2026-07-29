@@ -1,7 +1,7 @@
 {
   "name": "sass-scss-design-system-build51",
-  "version": "1.0.0",
-  "description": "Build 51 — Sass/SCSS Design System with variables, mixins, nested components, compiled clean CSS, and zero JavaScript for Breaking The Bot TikTok Multiverse",
+  "version": "2.0.0",
+  "description": "ApexUI — Enterprise Sass/SCSS Design System & UI Component Infrastructure. Built with modular SCSS variables, mixins, maps, functions, theme token generators, search filter bar, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies.",
   "main": "index.html",
   "scripts": {
     "build:scss": "sass scss/main.scss css/style.css --style=compressed",
@@ -12,10 +12,13 @@
     "sass",
     "scss",
     "design-system",
-    "breaking-the-bot",
-    "tiktok-multiverse",
+    "component-library",
+    "enterprise-ui",
     "zero-javascript",
-    "css3"
+    "css3",
+    "flexbox",
+    "css-grid",
+    "mit-license"
   ],
   "author": "Antigravity AI",
   "license": "MIT",
