@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, system alerts, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Hidden Pure CSS State Inputs -->
     <input type="checkbox" id="nav-toggle" class="state-hack" />
+    <input type="checkbox" id="toast-dismiss" class="state-hack" />
 
     <!-- Pure CSS Theme Switcher Radios -->
     <input type="radio" id="theme-dark" name="theme-switch" class="state-hack" checked />
@@ -28,7 +29,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.3.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.4.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -41,6 +42,7 @@
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
+            <li><a href="#alerts" class="nav-link">Alerts & Toasts</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
             <li><a href="#charts" class="nav-link">Analytics Charts</a></li>
@@ -77,15 +79,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, system alert callouts, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#code-inspector" class="btn btn-primary btn-lg">
-                📋 Tabbed SCSS Code Inspector
+              <a href="#alerts" class="btn btn-primary btn-lg">
+                🔔 System Alerts & Toasts
               </a>
-              <a href="#charts" class="btn btn-secondary btn-lg">
-                📊 SCSS Analytics Charts
+              <a href="#code-inspector" class="btn btn-secondary btn-lg">
+                📋 Tabbed SCSS Code Inspector
               </a>
             </div>
           </div>
@@ -98,24 +100,78 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/abstracts/_mixins.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.3.0</span>
+              <span class="file-path">scss/components/_alerts.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.4.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Responsive Breakpoint Helper</span>
-<span class="token-keyword">@mixin</span> <span class="token-mixin">respond-to</span>(<span class="token-variable">$breakpoint</span>) {
-  <span class="token-keyword">@if</span> map.has-key(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>) {
-    <span class="token-keyword">@media</span> (max-width: map.get(<span class="token-variable">$breakpoints</span>, <span class="token-variable">$breakpoint</span>)) {
-      <span class="token-keyword">@content</span>;
-    }
+<span class="token-comment">// System Banner Alert Component</span>
+.alert {
+  padding: <span class="token-variable">$spacing-4</span> <span class="token-variable">$spacing-5</span>;
+  border-radius: <span class="token-variable">$radius-md</span>;
+  border: 1px solid transparent;
+
+  &amp;-success {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    .alert-icon, .alert-title { color: <span class="token-variable">$color-success</span>; }
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- SCSS TABBED CODE INSPECTOR SECTION (NEW v1.3.0) -->
+      <!-- SYSTEM ALERTS & TOAST BANNERS SECTION (NEW v1.4.0) -->
+      <section id="alerts" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">SYSTEM ALERTS & NOTIFICATIONS</span>
+            <h2 style="margin-top: 8px;">Banner Alert Callouts</h2>
+            <p>Pre-styled notification banners built with SCSS status mixins (`$color-success`, `$color-warning`, `$color-danger`, `$color-info`).</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_alerts.scss</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="alert alert-success">
+            <span class="alert-icon">✓</span>
+            <div class="alert-content">
+              <div class="alert-title">SCSS Compilation Successful</div>
+              <div class="alert-desc">All SCSS component modules compiled to `css/style.css` with 0 warnings in 37ms.</div>
+            </div>
+            <span class="badge badge-success">200 OK</span>
+          </div>
+
+          <div class="alert alert-warning">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+              <div class="alert-title">Sass Map Deprecation Warning</div>
+              <div class="alert-desc">Legacy `map-get()` functions updated to `map.get()` following Dart Sass 3.0 specification.</div>
+            </div>
+            <span class="badge badge-warning">DEPRECATION</span>
+          </div>
+
+          <div class="alert alert-danger">
+            <span class="alert-icon">✕</span>
+            <div class="alert-content">
+              <div class="alert-title">Edge Network Latency Spike</div>
+              <div class="alert-desc">Region `eu-west-1` reported temporary latency spike above 45ms. Failover route active.</div>
+            </div>
+            <span class="badge" style="background: rgba(244, 63, 94, 0.2); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.4);">ALERT</span>
+          </div>
+
+          <div class="alert alert-info">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+              <div class="alert-title">New SCSS Release v1.4.0 Available</div>
+              <div class="alert-desc">Integrated System Alert Box and Fixed Toast Notification Streamer components.</div>
+            </div>
+            <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCSS TABBED CODE INSPECTOR SECTION -->
       <section id="code-inspector" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -139,7 +195,7 @@
           <!-- Tab 1 Panel -->
           <div class="codebox-panel codebox-panel-vars">
             <pre>
-<span class="cm">// --- Design Tokens & Color Scales ---</span>
+<span class="cm">// --- Design Tokens &amp; Color Scales ---</span>
 <span class="vr">$color-brand-primary</span>: <span class="str">#4f46e5</span>;
 <span class="vr">$color-brand-hover</span>:   <span class="str">#4338ca</span>;
 <span class="vr">$color-slate-900</span>:     <span class="str">#0f172a</span>;
@@ -305,7 +361,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -316,7 +372,7 @@
           <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
             <div>
               <span class="badge badge-brand">DESIGN TOKEN PALETTE</span>
-              <h2 style="margin-top: 8px;">Color Swatches & Scales</h2>
+              <h2 style="margin-top: 8px;">Color Swatches &amp; Scales</h2>
             </div>
             <span style="font-family: monospace; font-size: 0.8125rem; color: #94a3b8;">scss/abstracts/_variables.scss</span>
           </div>
@@ -407,7 +463,7 @@
 
         <!-- Buttons Showcase -->
         <div class="code-inspector-card" style="margin-bottom: 48px;">
-          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Buttons & Status Badges</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Buttons &amp; Status Badges</h3>
           <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
             <a href="#" class="btn btn-primary">Primary Button</a>
             <a href="#" class="btn btn-secondary">Secondary Button</a>
@@ -472,6 +528,17 @@
         </div>
       </section>
 
+      <!-- PURE CSS FIXED TOAST NOTIFICATION STREAMER -->
+      <div class="toast-container">
+        <div class="toast-item">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
+            <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
+          </div>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.4.0 deployed to Vercel production edge.</p>
+        </div>
+      </div>
+
       <!-- ZERO-JS MODAL INSPECTORS (TRIGGERED VIA :target) -->
       <div id="modal-inspect-variables" class="modal-overlay">
         <div class="modal-card">
@@ -509,7 +576,7 @@ $font-mono: 'Fira Code', monospace;</pre>
                 <span>Apex<span class="text-brand-gradient">UI</span></span>
               </a>
               <p style="font-size: 0.875rem; color: #94a3b8;">
-                Production-ready SCSS design system & enterprise UI component library. Built with 100% Pure Sass/SCSS and Zero JavaScript.
+                Production-ready SCSS design system &amp; enterprise UI component library. Built with 100% Pure Sass/SCSS and Zero JavaScript.
               </p>
             </div>
 
@@ -518,17 +585,17 @@ $font-mono: 'Fira Code', monospace;</pre>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
                 <li><a href="#code-inspector">_codebox.scss</a></li>
+                <li><a href="#alerts">_alerts.scss</a></li>
                 <li><a href="#themes">_themes.scss</a></li>
-                <li><a href="#charts">_charts.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#alerts">System Alerts</a></li>
                 <li><a href="#components">Metric Widgets</a></li>
                 <li><a href="#charts">Analytics Charts</a></li>
-                <li><a href="#code-inspector">Code Inspector</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -537,7 +604,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.3.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.4.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -546,7 +613,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.3.0 • SCSS Code Inspector Box</span>
+            <span>⚡ Release v1.4.0 • SCSS System Alerts &amp; Toasts</span>
           </div>
         </div>
       </footer>
