@@ -3,13 +3,13 @@
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://sass-scss-design-system-build51.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
 [![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/scss/main.scss)
-[![Release](https://img.shields.io/badge/Release-v1.9.0-teal?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
+[![Release](https://img.shields.io/badge/Release-v2.0.0-emerald?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
 
 ---
 
 ## 🌟 Overview
 
-**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, code inspectors, FAQ accordions, slide-over config drawers, release timelines, pricing cards, form controls, system alert callouts, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
+**ApexUI** is a standalone, enterprise-grade **Sass/SCSS Design System & UI Component Infrastructure** built to showcase production SCSS architecture for modern web applications. Featuring structured design token variables, media query mixins, Sass map functions, `@each` theme token generators, module search filter bars, code inspectors, FAQ accordions, slide-over config drawers, release timelines, pricing cards, form controls, system alert callouts, analytics chart widgets, component stylesheets, and zero JavaScript dependencies.
 
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
@@ -44,6 +44,7 @@ Build_51/
 │   │   ├── _timeline.scss       # Interactive release timeline & history component
 │   │   ├── _drawers.scss        # Slide-over component settings drawer
 │   │   ├── _accordion.scss      # Zero-JS FAQ accordion dropdown panels
+│   │   ├── _search.scss         # Search bar & active filter tag pill bar
 │   │   ├── _data-table.scss    # Customer deployment records data table
 │   │   └── _modals.scss         # Zero-JS :target documentation inspect modals
 │   └── main.scss                # Primary entrypoint compiling cleanly to css/style.css
@@ -58,6 +59,7 @@ Build_51/
 ## 🔥 Key Highlights
 
 - **🎯 Standalone Professional Application**: Designed specifically for enterprise UI engineering teams.
+- **🔍 Search & Filter Tag Bar**: Module search input with keyboard shortcut badge (`⌘K`) and pure CSS filter tag pills.
 - **🗂️ Zero-JS FAQ Accordion**: Expandable documentation panels with rotating chevron indicators and max-height transitions.
 - **🧩 Slide-Over Config Drawer**: Side drawer configuration panel triggered natively via `:target` selectors with backdrop blur.
 - **📜 SCSS Release Timeline**: Interactive version timeline with pseudo-element gradient connectors and glowing hover node dots.

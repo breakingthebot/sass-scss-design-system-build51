@@ -1,0 +1,100 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Search Bar & Filter Tag Pills
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.search-box-card {
+  @include glass-card();
+  padding: $spacing-6;
+  margin-top: $spacing-6;
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .search-icon {
+    position: absolute;
+    left: $spacing-4;
+    font-size: 1.125rem;
+    color: $color-slate-400;
+    pointer-events: none;
+  }
+
+  .search-control {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: $radius-lg;
+    color: #ffffff;
+    font-family: $font-sans;
+    font-size: 0.9375rem;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::placeholder {
+      color: $color-slate-500;
+    }
+
+    &:focus {
+      border-color: $color-brand-primary;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
+      background: rgba(30, 41, 59, 0.9);
+    }
+  }
+
+  .search-shortcut {
+    position: absolute;
+    right: $spacing-4;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: $radius-sm;
+    padding: 2px 6px;
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    color: $color-slate-400;
+  }
+}
+
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  margin-top: $spacing-4;
+  flex-wrap: wrap;
+
+  .filter-pill-label {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: $color-slate-400;
+    padding: 0.375rem 0.875rem;
+    border-radius: $radius-full;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// Pure CSS Filter State Rules
+#filter-all:checked ~ .app-wrapper .filter-pills-row label[for="filter-all"],
+#filter-abstracts:checked ~ .app-wrapper .filter-pills-row label[for="filter-abstracts"],
+#filter-components:checked ~ .app-wrapper .filter-pills-row label[for="filter-components"] {
+  background: $color-brand-light;
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #818cf8;
+}

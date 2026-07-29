@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -27,6 +27,11 @@
     <input type="radio" id="accordion-2" name="faq-accordion" class="state-hack" />
     <input type="radio" id="accordion-3" name="faq-accordion" class="state-hack" />
 
+    <!-- Pure CSS Filter Tag Radios -->
+    <input type="radio" id="filter-all" name="search-filters" class="state-hack" checked />
+    <input type="radio" id="filter-abstracts" name="search-filters" class="state-hack" />
+    <input type="radio" id="filter-components" name="search-filters" class="state-hack" />
+
     <div class="app-wrapper">
       <!-- Sticky Navigation Header -->
       <header class="navbar">
@@ -34,7 +39,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.9.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.0.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -45,6 +50,7 @@
           </label>
 
           <ul class="nav-menu">
+            <li><a href="#search-filters" class="nav-link">Search System</a></li>
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
             <li><a href="#faq" class="nav-link">FAQ Accordion</a></li>
@@ -54,8 +60,6 @@
             <li><a href="#alerts" class="nav-link">Alerts & Toasts</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
-            <li><a href="#charts" class="nav-link">Analytics Charts</a></li>
-            <li><a href="#data-table" class="nav-link">Data Table</a></li>
           </ul>
 
           <div class="nav-actions">
@@ -67,7 +71,7 @@
             </div>
 
             <a href="#drawer-settings" class="btn btn-outline btn-sm">⚙️ Config Drawer</a>
-            <a href="#faq" class="btn btn-primary btn-sm">Read FAQ</a>
+            <a href="#search-filters" class="btn btn-primary btn-sm">Search Docs</a>
           </div>
         </div>
       </header>
@@ -88,15 +92,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#faq" class="btn btn-primary btn-lg">
-                🗂️ Zero-JS FAQ Accordion
+              <a href="#search-filters" class="btn btn-primary btn-lg">
+                🔍 Search &amp; Filter Tag Bar
               </a>
-              <a href="#drawer-settings" class="btn btn-secondary btn-lg">
-                ⚙️ Slide-Over Config Drawer
+              <a href="#faq" class="btn btn-secondary btn-lg">
+                🗂️ Zero-JS FAQ Accordion
               </a>
             </div>
           </div>
@@ -109,26 +113,54 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_accordion.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.9.0</span>
+              <span class="file-path">scss/components/_search.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v2.0.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Pure CSS Accordion Panel Trigger</span>
-.accordion-item {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+<span class="token-comment">// Search Bar &amp; Filter Tag Pill System</span>
+.search-control {
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  .accordion-body {
-    max-height: 0;
-    transition: max-height 0.4s ease;
+  &amp;:focus {
+    border-color: <span class="token-variable">$color-brand-primary</span>;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- ACCORDION FAQ SECTION (NEW v1.9.0) -->
+      <!-- SEARCH INPUT & FILTER TAG PILL BAR SECTION (NEW v2.0.0) -->
+      <section id="search-filters" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">DOCUMENTATION SEARCH &amp; TAG FILTERS</span>
+            <h2 style="margin-top: 8px;">Interactive Module Filter Bar</h2>
+            <p>Filter SCSS architecture components dynamically with pure CSS radio state triggers!</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_search.scss</span>
+        </div>
+
+        <div class="search-box-card">
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="mixins" />
+            <span class="search-shortcut">⌘K</span>
+          </div>
+
+          <div class="filter-pills-row">
+            <span style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; margin-right: 8px;">Filter Modules:</span>
+            <label for="filter-all" class="filter-pill-label">⚡ All Modules (16)</label>
+            <label for="filter-abstracts" class="filter-pill-label">🎨 Abstracts &amp; Tokens (4)</label>
+            <label for="filter-components" class="filter-pill-label">🧩 UI Components (12)</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACCORDION FAQ SECTION -->
       <section id="faq" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -237,6 +269,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v2.0.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v2.0.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Search Input &amp; Active Filter Tag Pill Bar (`scss/components/_search.scss`)**. Added glassmorphism search control, keyboard shortcut badge (`⌘K`), and pure CSS filter tag pills.
+            </div>
+          </div>
+
           <!-- Release v1.9.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -258,18 +302,6 @@
             </div>
             <div class="timeline-body">
               Integrated **Component Settings Slide-Over Drawer (`scss/components/_drawers.scss`)**. Added side drawer panel triggered natively via `:target` selectors with backdrop blur.
-            </div>
-          </div>
-
-          <!-- Release v1.7.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v1.7.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Interactive SCSS Release Timeline Component (`scss/components/_timeline.scss`)**. Added vertical pseudo-element gradient connectors and glowing hover node dots.
             </div>
           </div>
         </div>
@@ -457,8 +489,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v1.9.0 Available</div>
-              <div class="alert-desc">Integrated Accordion FAQ &amp; Collapsible Panel components.</div>
+              <div class="alert-title">New SCSS Release v2.0.0 Available</div>
+              <div class="alert-desc">Integrated Search Input &amp; Filter Tag Pill Bar components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -655,7 +687,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, search, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -829,7 +861,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.9.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.0.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -878,18 +910,18 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#search-filters">_search.scss</a></li>
                 <li><a href="#faq">_accordion.scss</a></li>
                 <li><a href="#drawer-settings">_drawers.scss</a></li>
-                <li><a href="#timeline">_timeline.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#search-filters">Search System</a></li>
                 <li><a href="#faq">FAQ Accordion</a></li>
                 <li><a href="#drawer-settings">Config Drawer</a></li>
-                <li><a href="#timeline">Release Timeline</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -898,7 +930,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.9.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v2.0.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -907,7 +939,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.9.0 • Zero-JS FAQ Accordion</span>
+            <span>⚡ Release v2.0.0 • Search &amp; Filter Tag Pill Bar</span>
           </div>
         </div>
       </footer>

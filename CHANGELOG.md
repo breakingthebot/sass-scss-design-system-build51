@@ -5,11 +5,16 @@ All notable changes to **Build 51 (ApexUI — Enterprise Sass/SCSS Design System
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-07-29
+
+### Added
+- Integrated **Search Input & Active Filter Tag Pill Bar (`scss/components/_search.scss`)**.
+- Added glassmorphism search control, keyboard shortcut badge (`⌘K`), and pure CSS filter tag pills.
+
 ## [1.9.0] - 2026-07-29
 
 ### Added
 - Integrated **Accordion FAQ & Collapsible Panel Component (`scss/components/_accordion.scss`)**.
-- Added zero-JS accordion dropdown panels with max-height expansion transitions and rotating chevron indicators.
 
 ## [1.8.0] - 2026-07-29
 
