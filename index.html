@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, system alerts, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, code inspector, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -29,7 +29,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.4.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v1.5.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -42,6 +42,7 @@
           <ul class="nav-menu">
             <li><a href="#architecture" class="nav-link">Architecture</a></li>
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
+            <li><a href="#forms" class="nav-link">Form Controls</a></li>
             <li><a href="#alerts" class="nav-link">Alerts & Toasts</a></li>
             <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
             <li><a href="#tokens" class="nav-link">Design Tokens</a></li>
@@ -79,15 +80,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, system alert callouts, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, theme token generators, code inspectors, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#alerts" class="btn btn-primary btn-lg">
-                🔔 System Alerts & Toasts
+              <a href="#forms" class="btn btn-primary btn-lg">
+                📝 Form Controls Showcase
               </a>
-              <a href="#code-inspector" class="btn btn-secondary btn-lg">
-                📋 Tabbed SCSS Code Inspector
+              <a href="#alerts" class="btn btn-secondary btn-lg">
+                🔔 System Alerts & Toasts
               </a>
             </div>
           </div>
@@ -100,28 +101,83 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_alerts.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v1.4.0</span>
+              <span class="file-path">scss/components/_forms.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v1.5.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// System Banner Alert Component</span>
-.alert {
-  padding: <span class="token-variable">$spacing-4</span> <span class="token-variable">$spacing-5</span>;
+<span class="token-comment">// Form Control Focus Ring Mixin</span>
+.form-control {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: <span class="token-variable">$radius-md</span>;
-  border: 1px solid transparent;
 
-  &amp;-success {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.35);
-    .alert-icon, .alert-title { color: <span class="token-variable">$color-success</span>; }
+  &amp;:focus {
+    border-color: <span class="token-variable">$color-brand-primary</span>;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- SYSTEM ALERTS & TOAST BANNERS SECTION (NEW v1.4.0) -->
+      <!-- FORM CONTROLS & INPUT GROUPS SECTION (NEW v1.5.0) -->
+      <section id="forms" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">ENTERPRISE FORM CONTROLS</span>
+            <h2 style="margin-top: 8px;">Inputs, Selects &amp; Toggle Switches</h2>
+            <p>Pre-styled form controls with focus ring states and zero JavaScript interactivity.</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_forms.scss</span>
+        </div>
+
+        <div class="codebox-container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <!-- Form Input 1 -->
+            <div class="form-group">
+              <label class="form-label">Deployment Environment Name</label>
+              <input type="text" class="form-control" placeholder="e.g. production-us-east-1" value="production-us-east-1" />
+            </div>
+
+            <!-- Form Select -->
+            <div class="form-group">
+              <label class="form-label">Region Endpoint Target</label>
+              <select class="form-control form-select">
+                <option>US East (N. Virginia) — iad1</option>
+                <option>EU West (Frankfurt) — fra1</option>
+                <option>AP East (Tokyo) — hnd1</option>
+              </select>
+            </div>
+
+            <!-- Addon Input Group -->
+            <div class="form-group">
+              <label class="form-label">Custom Subdomain</label>
+              <div class="input-group">
+                <span class="input-addon">https://</span>
+                <input type="text" class="form-control" placeholder="app-apexui" value="app-apexui" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Switches Row -->
+          <div style="display: flex; gap: 32px; align-items: center; margin-top: 24px; flex-wrap: wrap; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+            <label class="form-switch-label">
+              <input type="checkbox" class="state-hack" checked />
+              <span class="switch-track"></span>
+              <span style="font-size: 0.875rem; font-weight: 600; color: #ffffff;">Enable SCSS Auto-Minification</span>
+            </label>
+
+            <label class="form-switch-label">
+              <input type="checkbox" class="state-hack" checked />
+              <span class="switch-track"></span>
+              <span style="font-size: 0.875rem; font-weight: 600; color: #ffffff;">Strict CSS Grid Auto-fit</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM ALERTS & TOAST BANNERS SECTION -->
       <section id="alerts" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -163,8 +219,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v1.4.0 Available</div>
-              <div class="alert-desc">Integrated System Alert Box and Fixed Toast Notification Streamer components.</div>
+              <div class="alert-title">New SCSS Release v1.5.0 Available</div>
+              <div class="alert-desc">Integrated Enterprise Form Controls & Input Group components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -361,7 +417,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -535,7 +591,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.4.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v1.5.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -584,7 +640,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
-                <li><a href="#code-inspector">_codebox.scss</a></li>
+                <li><a href="#forms">_forms.scss</a></li>
                 <li><a href="#alerts">_alerts.scss</a></li>
                 <li><a href="#themes">_themes.scss</a></li>
               </ul>
@@ -593,9 +649,9 @@ $font-mono: 'Fira Code', monospace;</pre>
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#forms">Form Controls</a></li>
                 <li><a href="#alerts">System Alerts</a></li>
                 <li><a href="#components">Metric Widgets</a></li>
-                <li><a href="#charts">Analytics Charts</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -604,7 +660,7 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v1.4.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v1.5.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="#">MIT License</a></li>
               </ul>
@@ -613,7 +669,7 @@ $font-mono: 'Fira Code', monospace;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v1.4.0 • SCSS System Alerts &amp; Toasts</span>
+            <span>⚡ Release v1.5.0 • Enterprise Form Controls</span>
           </div>
         </div>
       </footer>

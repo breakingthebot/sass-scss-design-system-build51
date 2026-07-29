@@ -23,6 +23,7 @@
 @use 'components/charts' as *;
 @use 'components/codebox' as *;
 @use 'components/alerts' as *;
+@use 'components/forms' as *;
 @use 'components/data-table' as *;
 @use 'components/modals' as *;
 
@@ -44,7 +45,7 @@
   }
 
   .hero-subtitle, p { color: #475569; }
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .data-table-wrapper {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .data-table-wrapper {
     background: #ffffff;
     border-color: #e2e8f0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
