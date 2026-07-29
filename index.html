@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, zero-JS modal dialogs, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -39,7 +39,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.0.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.1.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -70,8 +70,8 @@
               <label for="theme-cyber" style="cursor: pointer; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #00f6ff; user-select: none;">⚡ Cyber</label>
             </div>
 
-            <a href="#drawer-settings" class="btn btn-outline btn-sm">⚙️ Config Drawer</a>
-            <a href="#search-filters" class="btn btn-primary btn-sm">Search Docs</a>
+            <a href="#modal-export" class="btn btn-outline btn-sm">📦 Export SCSS</a>
+            <a href="#drawer-settings" class="btn btn-primary btn-sm">⚙️ Config</a>
           </div>
         </div>
       </header>
@@ -92,15 +92,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, zero-JS modal dialogs, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#search-filters" class="btn btn-primary btn-lg">
-                🔍 Search &amp; Filter Tag Bar
+              <a href="#modal-export" class="btn btn-primary btn-lg">
+                📦 Export SCSS Bundle
               </a>
-              <a href="#faq" class="btn btn-secondary btn-lg">
-                🗂️ Zero-JS FAQ Accordion
+              <a href="#modal-confirm" class="btn btn-secondary btn-lg">
+                ⚠️ Modal Confirmation Action
               </a>
             </div>
           </div>
@@ -113,27 +113,29 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_search.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v2.0.0</span>
+              <span class="file-path">scss/components/_modals.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v2.1.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Search Bar &amp; Filter Tag Pill System</span>
-.search-control {
-  padding: 0.75rem 1rem 0.75rem 2.75rem;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+<span class="token-comment">// Modal System Expansion (:target trigger)</span>
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(16px);
 
-  &amp;:focus {
-    border-color: <span class="token-variable">$color-brand-primary</span>;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
+  &amp;:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    .modal-card { transform: scale(1) translateY(0); }
   }
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- SEARCH INPUT & FILTER TAG PILL BAR SECTION (NEW v2.0.0) -->
+      <!-- SEARCH INPUT & FILTER TAG PILL BAR SECTION -->
       <section id="search-filters" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -147,7 +149,7 @@
         <div class="search-box-card">
           <div class="search-input-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="mixins" />
+            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="modals" />
             <span class="search-shortcut">⌘K</span>
           </div>
 
@@ -269,6 +271,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v2.1.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v2.1.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Modal Dialog System Expansion (`scss/components/_modals.scss`)**. Added confirmation action dialogs and SCSS code export modals driven natively via `:target` selectors.
+            </div>
+          </div>
+
           <!-- Release v2.0.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -290,18 +304,6 @@
             </div>
             <div class="timeline-body">
               Integrated **Accordion FAQ &amp; Collapsible Panel Component (`scss/components/_accordion.scss`)**. Added zero-JS accordion dropdown panels with rotating chevrons and max-height transitions.
-            </div>
-          </div>
-
-          <!-- Release v1.8.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v1.8.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Component Settings Slide-Over Drawer (`scss/components/_drawers.scss`)**. Added side drawer panel triggered natively via `:target` selectors with backdrop blur.
             </div>
           </div>
         </div>
@@ -336,7 +338,7 @@
             </ul>
 
             <div class="pricing-cta">
-              <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started Free</a>
+              <a href="#modal-export" class="btn btn-secondary" style="width: 100%;">Get Started Free</a>
             </div>
           </div>
 
@@ -361,7 +363,7 @@
             </ul>
 
             <div class="pricing-cta">
-              <a href="#" class="btn btn-primary" style="width: 100%;">Start 14-Day Trial</a>
+              <a href="#modal-export" class="btn btn-primary" style="width: 100%;">Start 14-Day Trial</a>
             </div>
           </div>
 
@@ -385,7 +387,7 @@
             </ul>
 
             <div class="pricing-cta">
-              <a href="#" class="btn btn-outline" style="width: 100%;">Contact Enterprise</a>
+              <a href="#modal-confirm" class="btn btn-outline" style="width: 100%;">Contact Enterprise</a>
             </div>
           </div>
         </div>
@@ -489,8 +491,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v2.0.0 Available</div>
-              <div class="alert-desc">Integrated Search Input &amp; Filter Tag Pill Bar components.</div>
+              <div class="alert-title">New SCSS Release v2.1.0 Available</div>
+              <div class="alert-desc">Integrated Modal Dialog System Expansion with Code Export &amp; Confirmation dialogs.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -831,7 +833,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td>14 ms</td>
                 <td>12.4 KB</td>
-                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+                <td><a href="#modal-export" class="btn btn-outline btn-sm">Export Bundle</a></td>
               </tr>
               <tr>
                 <td><strong>Starlight Systems</strong></td>
@@ -839,7 +841,7 @@
                 <td><span class="badge badge-success">Active</span></td>
                 <td>18 ms</td>
                 <td>11.8 KB</td>
-                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+                <td><a href="#modal-export" class="btn btn-outline btn-sm">Export Bundle</a></td>
               </tr>
               <tr>
                 <td><strong>CyberPulse Labs</strong></td>
@@ -847,7 +849,7 @@
                 <td><span class="badge badge-warning">Deploying</span></td>
                 <td>42 ms</td>
                 <td>14.1 KB</td>
-                <td><a href="#modal-inspect-variables" class="btn btn-outline btn-sm">View Config</a></td>
+                <td><a href="#modal-confirm" class="btn btn-outline btn-sm">Audit Config</a></td>
               </tr>
             </tbody>
           </table>
@@ -861,33 +863,68 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.0.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.1.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
       <!-- ZERO-JS MODAL INSPECTORS (TRIGGERED VIA :target) -->
+      <!-- 1. Variable Inspector Modal -->
       <div id="modal-inspect-variables" class="modal-overlay">
         <div class="modal-card">
           <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
           <h2 class="modal-title">⚙️ `scss/abstracts/_variables.scss`</h2>
-          <p style="font-size: 0.875rem; color: #94a3b8; margin-bottom: 16px;">
+          <p class="modal-body">
             Core design token definitions compiled cleanly with zero JS overhead.
           </p>
 
-          <pre style="background: rgba(0, 0, 0, 0.6); padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.8125rem; color: #10b981;">
+          <pre style="background: rgba(0, 0, 0, 0.6); padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.8125rem; color: #10b981; margin-bottom: 20px;">
 $color-brand-primary: #4f46e5;
 $color-brand-hover: #4338ca;
 $color-slate-900: #0f172a;
 $color-success: #10b981;
 $color-warning: #f59e0b;
-$color-danger: #f43f5e;
+$color-danger: #f43f5e;</pre>
 
-$font-sans: 'Inter', sans-serif;
-$font-heading: 'Outfit', sans-serif;
-$font-mono: 'Fira Code', monospace;</pre>
-
-          <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+          <div class="modal-actions">
             <a href="#" class="btn btn-primary btn-sm">Close Inspector</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. SCSS Export Modal (NEW v2.1.0) -->
+      <div id="modal-export" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
+          <h2 class="modal-title">📦 Export SCSS System Bundle</h2>
+          <p class="modal-body">
+            Download the standalone compiled CSS bundle or SCSS source modules for local project integration.
+          </p>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 16px; margin-bottom: 20px; font-family: monospace; font-size: 0.8125rem;">
+            <div style="color: #818cf8; margin-bottom: 6px;">● Target File: css/style.css (Minified)</div>
+            <div style="color: #94a3b8; margin-bottom: 6px;">● Bundle Size: 14.8 KB (Gzip: 4.1 KB)</div>
+            <div style="color: #10b981;">● SHA256: 4a35b27e90f88afe7b02d58838d28</div>
+          </div>
+
+          <div class="modal-actions">
+            <a href="css/style.css" download class="btn btn-primary btn-sm">Download style.css</a>
+            <a href="#" class="btn btn-secondary btn-sm">Cancel</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Confirmation Action Modal (NEW v2.1.0) -->
+      <div id="modal-confirm" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn" title="Close Modal">✕</a>
+          <h2 class="modal-title">⚠️ Audit System Configuration</h2>
+          <p class="modal-body">
+            Are you sure you want to trigger a full SCSS design token audit on edge environment `production-us-east-1`?
+          </p>
+
+          <div class="modal-actions">
+            <a href="#" class="btn btn-primary btn-sm">Confirm Audit</a>
+            <a href="#" class="btn btn-outline btn-sm">Cancel</a>
           </div>
         </div>
       </div>
@@ -910,18 +947,18 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#modal-export">_modals.scss</a></li>
                 <li><a href="#search-filters">_search.scss</a></li>
                 <li><a href="#faq">_accordion.scss</a></li>
-                <li><a href="#drawer-settings">_drawers.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#modal-export">Modal Dialog System</a></li>
                 <li><a href="#search-filters">Search System</a></li>
                 <li><a href="#faq">FAQ Accordion</a></li>
-                <li><a href="#drawer-settings">Config Drawer</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -930,16 +967,16 @@ $font-mono: 'Fira Code', monospace;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v2.0.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v2.1.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
-                <li><a href="#">MIT License</a></li>
+                <li><a href="LICENSE">MIT License</a></li>
               </ul>
             </div>
           </div>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v2.0.0 • Search &amp; Filter Tag Pill Bar</span>
+            <span>⚡ Release v2.1.0 • Modal Dialog System Expansion</span>
           </div>
         </div>
       </footer>

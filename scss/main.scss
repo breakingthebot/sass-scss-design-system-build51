@@ -50,17 +50,14 @@
   }
 
   .hero-subtitle, p { color: #475569; }
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .data-table-wrapper {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .form-control, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .data-table-wrapper, .modal-card {
     background: #ffffff;
     border-color: #e2e8f0;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
 
-  .search-control {
-    background: #ffffff;
-    border-color: #e2e8f0;
-    color: #0f172a;
-  }
+  .modal-title { color: #0f172a; }
+  .modal-body { color: #475569; }
 }
 
 #theme-cyber:checked ~ .app-wrapper {
@@ -70,7 +67,7 @@
     border-bottom-color: rgba(255, 0, 127, 0.4);
   }
 
-  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .accordion-group, .search-box-card {
+  .feature-card, .metric-widget, .code-inspector-card, .chart-card, .codebox-container, .pricing-card, .timeline-item, .accordion-group, .search-box-card, .modal-card {
     border-color: rgba(0, 246, 255, 0.4);
     box-shadow: 0 0 25px rgba(0, 246, 255, 0.2);
   }
