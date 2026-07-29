@@ -1,0 +1,46 @@
+// ==========================================================================
+// SCSS Component: Buttons
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: $radius-md;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &-primary {
+    background: linear-gradient(135deg, $color-magenta, $color-purple);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(255, 0, 127, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 0, 127, 0.45);
+      filter: brightness(1.1);
+    }
+  }
+
+  &-secondary {
+    background: $color-glass;
+    border: 1px solid $border-glow;
+    color: $text-main;
+
+    &:hover {
+      border-color: $color-cyan;
+      box-shadow: 0 0 20px rgba(0, 246, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+}

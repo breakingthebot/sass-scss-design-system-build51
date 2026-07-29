@@ -1,0 +1,40 @@
+// ==========================================================================
+// SCSS Main Entrypoint: Build 51 Design System
+// ==========================================================================
+
+// 1. Abstracts
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'abstracts/functions' as *;
+
+// 2. Base
+@use 'base/reset' as *;
+@use 'base/typography' as *;
+
+// 3. Components
+@use 'components/navbar' as *;
+@use 'components/buttons' as *;
+@use 'components/hero' as *;
+@use 'components/cards' as *;
+@use 'components/polaroid' as *;
+@use 'components/radio' as *;
+@use 'components/modals' as *;
+
+// 4. Custom Component Utilities
+.footer {
+  border-top: 1px solid $border-glow;
+  padding: 60px 0 30px 0;
+  background: rgba(6, 8, 18, 0.95);
+
+  .footer-grid {
+    @include grid-auto(220px, 40px);
+  }
+
+  .footer-bottom {
+    @include flex-center(row, space-between, center);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 24px;
+    font-size: 13px;
+    color: $text-muted;
+  }
+}

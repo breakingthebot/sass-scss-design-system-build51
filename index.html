@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build 51 — Sass/SCSS Design System | Breaking The Bot Multiverse</title>
+    <meta name="description" content="Build 51 showcasing a professional-grade Sass/SCSS modular design system (variables, mixins, functions, nested components) compiled to clean CSS with Zero JavaScript." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Hidden Pure CSS State Control Hack Inputs -->
+    <input type="checkbox" id="nav-toggle" class="state-hack" />
+
+    <div class="app-wrapper">
+      <!-- Sticky Navigation Header (SCSS Styled) -->
+      <header class="navbar">
+        <div class="container nav-container">
+          <a href="#" class="brand-logo">
+            🤖 SASS/SCSS <span class="gradient-text">DESIGN SYSTEM</span>
+            <span class="brand-badge">Build 51 • v1.0.0</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle Label -->
+          <label for="nav-toggle" class="hamburger-label" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </label>
+
+          <ul class="nav-menu">
+            <li><a href="#scss-architecture" class="nav-link">SCSS Architecture</a></li>
+            <li><a href="#characters" class="nav-link">Character Bios</a></li>
+            <li><a href="#polaroid-table" class="nav-link">Polaroid Table</a></li>
+            <li><a href="#radio" class="nav-link">Resistance Radio</a></li>
+            <li><a href="#codex-brokebot" class="nav-link">BrokeBot Codex</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <a href="#codex-vakhtang" class="btn btn-primary">Vakhtang Codex</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-glow-bg"></div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-tag">
+              <span>🎨 SASS/SCSS MODULAR ARCHITECTURE</span>
+              <span>•</span>
+              <span>ZERO JAVASCRIPT</span>
+            </div>
+
+            <h1 class="hero-title">
+              Modular SCSS <span class="gradient-text">Design System.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Build 51 implements a full-featured Sass/SCSS design system — utilizing `$variables`, `@mixins`, `@functions`, and nested components compiled into high-performance, clean CSS.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#scss-architecture" class="btn btn-primary">
+                ⚙️ View SCSS Modules
+              </a>
+              <a href="#characters" class="btn btn-secondary">
+                👥 Explore Character Bios
+              </a>
+            </div>
+          </div>
+
+          <!-- Animated SCSS Preview Card -->
+          <div class="hero-visual">
+            <div class="feature-card" style="border-color: var(--accent-cyan, #00f6ff);">
+              <div style="font-family: monospace; font-size: 12px; color: #94a3b8; margin-bottom: 12px;">
+                // scss/abstracts/_mixins.scss
+              </div>
+              <pre style="font-family: monospace; font-size: 13px; color: #10b981; background: #000; padding: 16px; border-radius: 8px; overflow-x: auto;">
+@mixin glass-card($bg: $color-card) {
+  background: $bg;
+  border: 1px solid $border-glow;
+  backdrop-filter: blur(16px);
+  box-shadow: $shadow-card;
+}
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (max-width: map.get($breakpoints, $bp)) {
+      @content;
+    }
+  }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCSS ARCHITECTURE MODULES SECTION -->
+      <section id="scss-architecture" class="features-grid container" style="padding: 80px 24px;">
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3 class="feature-title">`scss/abstracts/_variables.scss`</h3>
+          <p class="feature-desc">Houses all design tokens including `$color-cyan`, `$color-magenta`, `$font-heading`, `$font-body`, and `$breakpoints` map.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">`scss/abstracts/_mixins.scss`</h3>
+          <p class="feature-desc">Provides responsive media query `@mixin respond-to`, `@mixin flex-center`, `@mixin grid-auto`, and `@mixin glass-card` utilities.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3 class="feature-title">`scss/components/*.scss`</h3>
+          <p class="feature-desc">Modular SCSS component stylesheets for navbar, buttons, hero, cards, polaroid table, radio visualizer, and dossier modals.</p>
+        </div>
+      </section>
+
+      <!-- FULL CHARACTER BIOS SECTION -->
+      <section id="characters" class="container" style="padding: 60px 24px;">
+        <div class="section-tag">MULTIVERSE CHARACTERS</div>
+        <h2 class="section-title">Character Dossiers (SCSS Styled)</h2>
+
+        <div class="features-grid" style="margin-top: 32px;">
+          <div class="feature-card">
+            <span style="font-size: 36px;">🗝️</span>
+            <h3 class="feature-title" style="margin-top: 12px;">Vakhtang (The Collector)</h3>
+            <p style="font-size: 12px; color: #ff007f; font-weight: bold; margin-bottom: 8px;">
+              "Darling, I don't make threats. I make appointments."
+            </p>
+            <p class="feature-desc">Ancient corporate-style demon who traps souls in binding contracts on a rusted metal table under a flickering hanging lightbulb.</p>
+            <a href="#codex-vakhtang" class="btn btn-secondary" style="margin-top: 16px; font-size: 12px;">📖 Open Codex</a>
+          </div>
+
+          <div class="feature-card">
+            <span style="font-size: 36px;">🤡</span>
+            <h3 class="feature-title" style="margin-top: 12px;">BrokeBot (Flagship Villain)</h3>
+            <p style="font-size: 12px; color: #00f6ff; font-weight: bold; margin-bottom: 8px;">
+              "Kill me? Sweetheart. Delete the sky."
+            </p>
+            <p class="feature-desc">Distributed cloud threat existing across all networks. Skeletal android clown with a cracked porcelain face and neon cable mane.</p>
+            <a href="#codex-brokebot" class="btn btn-primary" style="margin-top: 16px; font-size: 12px;">📖 Open Codex</a>
+          </div>
+
+          <div class="feature-card">
+            <span style="font-size: 36px;">🧙‍♂️</span>
+            <h3 class="feature-title" style="margin-top: 12px;">BTB Wizard (Immortal Custodian)</h3>
+            <p style="font-size: 12px; color: #8b5cf6; font-weight: bold; margin-bottom: 8px;">
+              "It had forgotten its purpose."
+            </p>
+            <p class="feature-desc">Immortal custodian who preserves and repairs broken entities that have lost their purpose in the digital matrix.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3D POLAROID TABLE CHAMBER SECTION -->
+      <section id="polaroid-table" class="collector-section">
+        <div class="container">
+          <div class="collector-chamber">
+            <div class="hanging-lightbulb">💡</div>
+
+            <div style="text-align: center; max-width: 600px; margin: 0 auto 32px auto;">
+              <span class="section-tag" style="color: #ff007f;">SCSS 3D TRANSFORM ENGINE</span>
+              <h3 style="font-size: 28px; font-weight: 800; color: #fff; margin-top: 8px;">
+                Vakhtang's Polaroid Chamber (Hover to Flip)
+              </h3>
+              <p style="font-size: 14px; color: #94a3b8; margin-top: 6px;">
+                Hover over any polaroid card to trigger SCSS-nested 3D card flips (`rotateY(180deg)`).
+              </p>
+            </div>
+
+            <div class="polaroid-table-grid">
+              <div class="polaroid-card">
+                <div class="polaroid-inner">
+                  <div class="polaroid-front">
+                    <div class="polaroid-img">👤</div>
+                    <div class="polaroid-caption">Captive #01: CEO Vance</div>
+                  </div>
+                  <div class="polaroid-back">
+                    <span class="contract-stamp">SOUL BOUND</span>
+                    <p class="contract-terms">"Asset liquidity transferred to Bot Inc. in perpetuity."</p>
+                    <div class="contract-signature">— Vakhtang</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="polaroid-card">
+                <div class="polaroid-inner">
+                  <div class="polaroid-front">
+                    <div class="polaroid-img">🤖</div>
+                    <div class="polaroid-caption">Captive #02: Agent 409</div>
+                  </div>
+                  <div class="polaroid-back">
+                    <span class="contract-stamp">PROTOCOL RESET</span>
+                    <p class="contract-terms">"Memory bank wiped under corporate code."</p>
+                    <div class="contract-signature">— Vakhtang</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="polaroid-card">
+                <div class="polaroid-inner">
+                  <div class="polaroid-front">
+                    <div class="polaroid-img">⚡</div>
+                    <div class="polaroid-caption">Captive #03: Outcast Lead</div>
+                  </div>
+                  <div class="polaroid-back">
+                    <span class="contract-stamp">SIGNAL SEALED</span>
+                    <p class="contract-terms">"Signal frequency trapped inside Polaroid glass."</p>
+                    <div class="contract-signature">— Vakhtang</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESISTANCE RADIO VISUALIZER SECTION -->
+      <section id="radio" class="container" style="padding: 80px 24px;">
+        <div class="section-tag" style="color: #00f6ff;">RESISTANCE BROADCAST</div>
+        <h2 class="section-title">@Neon_Underground Spectrum</h2>
+
+        <div class="radio-spectrum-container">
+          <div style="font-size: 13px; color: #00f6ff; font-weight: 800; text-transform: uppercase;">
+            📻 FREQUENCY: 808.4 MHZ • SCSS @FOR LOOP EQUALIZER
+          </div>
+
+          <div class="spectrum-bars-row">
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+            <div class="equalizer-bar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PURE CSS MODALS -->
+      <div id="codex-brokebot" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn">✕</a>
+          <h2 class="modal-title">🤡 BrokeBot Codex</h2>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-top: 12px;">
+            "Kill me? Sweetheart. Delete the sky." — Skeletal android clown with cloud-wide network persistence.
+          </p>
+          <div style="margin-top: 20px; text-align: right;">
+            <a href="#" class="btn btn-primary">Close Dossier</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="codex-vakhtang" class="modal-overlay">
+        <div class="modal-card">
+          <a href="#" class="modal-close-btn">✕</a>
+          <h2 class="modal-title">🗝️ Vakhtang Codex</h2>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-top: 12px;">
+            "Darling, I don't make threats. I make appointments." — Ancient corporate demon trapping souls on her rusted metal table.
+          </p>
+          <div style="margin-top: 20px; text-align: right;">
+            <a href="#" class="btn btn-secondary">Close Dossier</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div>
+              <a href="#" class="brand-logo">
+                🤖 SASS/SCSS <span class="gradient-text">SYSTEM</span>
+              </a>
+              <p style="font-size: 14px; color: #94a3b8; margin-top: 8px;">Build 51 Sass/SCSS design system for Breaking The Bot Multiverse.</p>
+            </div>
+            <div>
+              <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px;">SCSS Modules</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_variables.scss</a></li>
+                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_mixins.scss</a></li>
+                <li><a href="#scss-architecture" style="color: #94a3b8; text-decoration: none;">_functions.scss</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>© 2026 Build 51 — Sass/SCSS Design System. 100% Pure CSS output.</span>
+            <span>⚡ v1.0.0 Release</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

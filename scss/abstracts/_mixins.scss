@@ -1,0 +1,71 @@
+// ==========================================================================
+// SCSS Abstracts: Mixins
+// ==========================================================================
+
+@use 'sass:map';
+@use 'variables' as *;
+
+// Flexbox Center Alignment Helper
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Auto-Fit CSS Grid Helper
+@mixin grid-auto($min-width: 280px, $gap: 24px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Glassmorphism Card Style
+@mixin glass-card($bg: $color-card, $border: $border-glow) {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  backdrop-filter: blur(16px);
+  box-shadow: $shadow-card;
+}
+
+// Responsive Media Query Breakpoint Mixin
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map.";
+  }
+}
+
+// Neon Glow Effect
+@mixin neon-glow($color: $color-cyan, $glow-size: 20px) {
+  box-shadow: 0 0 $glow-size rgba($color, 0.4);
+  border-color: $color;
+}
+
+// Button Styling Helper
+@mixin button-style($bg-gradient, $text-color: #ffffff) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: $radius-md;
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  background: $bg-gradient;
+  color: $text-color;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+}

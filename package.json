@@ -1,0 +1,25 @@
+{
+  "name": "sass-scss-design-system-build51",
+  "version": "1.0.0",
+  "description": "Build 51 — Sass/SCSS Design System with variables, mixins, nested components, compiled clean CSS, and zero JavaScript for Breaking The Bot TikTok Multiverse",
+  "main": "index.html",
+  "scripts": {
+    "build:scss": "sass scss/main.scss css/style.css --style=compressed",
+    "watch:scss": "sass --watch scss/main.scss:css/style.css",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "design-system",
+    "breaking-the-bot",
+    "tiktok-multiverse",
+    "zero-javascript",
+    "css3"
+  ],
+  "author": "Antigravity AI",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

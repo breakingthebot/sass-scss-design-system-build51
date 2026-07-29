@@ -1,0 +1,20 @@
+# Universal SOP Directive Exclusions
+AGENTS.md
+BUILD_NOTES*.md
+
+# Node Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+*.tmp
+.env
+.env.local
+
+# Vercel & Build Output
+.vercel/
+dist/

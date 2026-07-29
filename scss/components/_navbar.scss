@@ -1,0 +1,106 @@
+// ==========================================================================
+// SCSS Component: Navbar
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(6, 8, 18, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid $border-glow;
+  padding: 16px 0;
+
+  .nav-container {
+    @include flex-center(row, space-between, center);
+  }
+
+  .brand-logo {
+    font-family: $font-heading;
+    font-size: 22px;
+    font-weight: 800;
+    color: $text-main;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .brand-badge {
+      background: linear-gradient(135deg, $color-magenta, $color-purple);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+
+    .nav-link {
+      color: $text-muted;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-cyan;
+      }
+    }
+
+    @include respond-to('tablet') {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: $color-dark;
+      border-bottom: 1px solid $border-glow;
+      flex-direction: column;
+      padding: 20px;
+      gap: 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+// Hamburger Mobile Toggle Label
+.hamburger-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: $text-main;
+    transition: all 0.3s ease;
+  }
+
+  @include respond-to('tablet') {
+    display: flex;
+  }
+}
+
+#nav-toggle:checked ~ .app-wrapper .navbar .nav-menu {
+  max-height: 360px;
+  padding: 24px;
+}
