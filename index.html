@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexUI — Enterprise Sass/SCSS Design System & Component Infrastructure</title>
-    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, circular progress gauges, 3D flip cards, range sliders, volume meters, corner ribbon cards, pulse status badges, zero-JS modal dialogs, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
+    <meta name="description" content="ApexUI is a modular, production-ready Sass/SCSS design system and UI component library. Featuring SCSS variables, mixins, maps, functions, theme token generators, breadcrumb navigation, circular progress gauges, 3D flip cards, range sliders, volume meters, corner ribbon cards, pulse status badges, zero-JS modal dialogs, search bar filter pills, code inspector, FAQ accordion, slide-over config drawer, release timeline, pricing cards, form controls, analytics charts, and zero JavaScript dependencies." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -39,7 +39,7 @@
           <a href="#" class="brand-logo">
             <span class="brand-icon">⚡</span>
             <span>Apex<span class="text-brand-gradient">UI</span></span>
-            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.5.0</span>
+            <span class="badge badge-brand" style="margin-left: 8px;">SCSS System • v2.6.0</span>
           </a>
 
           <!-- Mobile Hamburger Toggle Label -->
@@ -50,6 +50,7 @@
           </label>
 
           <ul class="nav-menu">
+            <li><a href="#breadcrumbs" class="nav-link">Breadcrumbs</a></li>
             <li><a href="#gauges" class="nav-link">Status Gauges</a></li>
             <li><a href="#flip-cards" class="nav-link">3D Flip Cards</a></li>
             <li><a href="#sliders" class="nav-link">Sliders & Meters</a></li>
@@ -59,7 +60,6 @@
             <li><a href="#code-inspector" class="nav-link">SCSS Inspector</a></li>
             <li><a href="#faq" class="nav-link">FAQ Accordion</a></li>
             <li><a href="#timeline" class="nav-link">Release Timeline</a></li>
-            <li><a href="#themes" class="nav-link">SCSS Themes</a></li>
           </ul>
 
           <div class="nav-actions">
@@ -92,15 +92,15 @@
             </h1>
 
             <p class="hero-subtitle">
-              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, circular progress gauges, 3D flip feature cards, range sliders, volume level meters, corner ribbon strips, pulse status badges, zero-JS modal dialogs, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
+              ApexUI is a modular, high-performance Sass design system engineered for enterprise UI teams. Built with structured `$variables`, `@mixins`, Sass map breakpoints, breadcrumb trail navigation, circular progress gauges, 3D flip feature cards, range sliders, volume level meters, corner ribbon strips, pulse status badges, zero-JS modal dialogs, search filter bars, FAQ accordions, slide-over drawers, release timelines, theme token generators, code inspectors, pricing cards, form controls, analytics charts, and zero runtime JavaScript dependencies.
             </p>
 
             <div class="hero-cta-group">
-              <a href="#gauges" class="btn btn-primary btn-lg">
-                📊 Circular Status Gauges
+              <a href="#breadcrumbs" class="btn btn-primary btn-lg">
+                🗂️ Breadcrumb Navigation
               </a>
-              <a href="#flip-cards" class="btn btn-secondary btn-lg">
-                🎴 3D Flipping Feature Cards
+              <a href="#gauges" class="btn btn-secondary btn-lg">
+                📊 Circular Status Gauges
               </a>
             </div>
           </div>
@@ -113,22 +113,43 @@
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <span class="file-path">scss/components/_gauges.scss</span>
-              <span class="badge badge-brand">ApexUI SCSS v2.5.0</span>
+              <span class="file-path">scss/components/_breadcrumbs.scss</span>
+              <span class="badge badge-brand">ApexUI SCSS v2.6.0</span>
             </div>
 
             <pre>
-<span class="token-comment">// Circular Progress Gauges</span>
-.gauge-fill {
-  stroke-dasharray: 377;
-  stroke-dashoffset: calc(377 - (377 * var(--gauge-percent)) / 100);
-  transition: stroke-dashoffset 0.8s ease;
+<span class="token-comment">// Breadcrumb Trail Navigation</span>
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: rgba(255, 255, 255, 0.2);
+  margin-right: 4px;
 }</pre>
           </div>
         </div>
       </section>
 
-      <!-- CIRCULAR PROGRESS GAUGES SECTION (NEW v2.5.0) -->
+      <!-- BREADCRUMB TRAIL NAVIGATION SECTION (NEW v2.6.0) -->
+      <section id="breadcrumbs" class="container" style="padding: 60px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-brand">HIERARCHICAL NAVIGATION TRAIL</span>
+            <h2 style="margin-top: 8px;">Breadcrumb Trail Navigation Bar</h2>
+            <p>Pseudo-element slash separators and active page indicators powered by SCSS nested mixins.</p>
+          </div>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: #818cf8;">scss/components/_breadcrumbs.scss</span>
+        </div>
+
+        <div class="breadcrumb-card">
+          <ul class="breadcrumb-nav">
+            <li class="breadcrumb-item"><a href="#">🏠 System Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">SCSS Architecture</a></li>
+            <li class="breadcrumb-item"><a href="#">Components Library</a></li>
+            <li class="breadcrumb-item active"><span>_breadcrumbs.scss</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CIRCULAR PROGRESS GAUGES SECTION -->
       <section id="gauges" class="container" style="padding: 60px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
           <div>
@@ -358,7 +379,7 @@
             <div class="ribbon-corner ribbon-success">ENTERPRISE</div>
             <div class="status-pulse-badge" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3); color: #818cf8; margin-bottom: 16px;">
               <span class="pulse-dot" style="background: #6366f1; box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);"></span>
-              <span>SCSS v2.5.0 ACTIVE</span>
+              <span>SCSS v2.6.0 ACTIVE</span>
             </div>
             <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Modular SCSS Core</h3>
             <p style="font-size: 0.875rem; color: #94a3b8;">Compiled with modern Dart Sass 3.0 module system with zero JS runtime overhead.</p>
@@ -391,15 +412,15 @@
         <div class="search-box-card">
           <div class="search-input-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="gauges" />
+            <input type="text" class="search-control" placeholder="Search SCSS variables, mixins, maps, or UI components..." value="breadcrumbs" />
             <span class="search-shortcut">⌘K</span>
           </div>
 
           <div class="filter-pills-row">
             <span style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; margin-right: 8px;">Filter Modules:</span>
-            <label for="filter-all" class="filter-pill-label">⚡ All Modules (20)</label>
+            <label for="filter-all" class="filter-pill-label">⚡ All Modules (21)</label>
             <label for="filter-abstracts" class="filter-pill-label">🎨 Abstracts &amp; Tokens (4)</label>
-            <label for="filter-components" class="filter-pill-label">🧩 UI Components (16)</label>
+            <label for="filter-components" class="filter-pill-label">🧩 UI Components (17)</label>
           </div>
         </div>
       </section>
@@ -513,6 +534,18 @@
         </div>
 
         <div class="timeline">
+          <!-- Release v2.6.0 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <span class="timeline-version">ApexUI Release v2.6.0</span>
+              <span class="timeline-date">2026-07-29</span>
+            </div>
+            <div class="timeline-body">
+              Integrated **Breadcrumb Trail Navigation Bar (`scss/components/_breadcrumbs.scss`)**. Added pseudo-element slash separators (`content: '/'`) and active page styling.
+            </div>
+          </div>
+
           <!-- Release v2.5.0 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -534,18 +567,6 @@
             </div>
             <div class="timeline-body">
               Integrated **3D Flipping Feature Cards Component (`scss/components/_flip-cards.scss`)**. Added 3D perspective hover flip cards with `transform-style: preserve-3d` and back-face code inspectors.
-            </div>
-          </div>
-
-          <!-- Release v2.3.0 -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <span class="timeline-version">ApexUI Release v2.3.0</span>
-              <span class="timeline-date">2026-07-29</span>
-            </div>
-            <div class="timeline-body">
-              Integrated **Range Sliders &amp; Audio Level Meters Component (`scss/components/_sliders.scss`)**. Added custom styled HTML5 range controls and segmented SCSS volume level meters.
             </div>
           </div>
         </div>
@@ -733,8 +754,8 @@
           <div class="alert alert-info">
             <span class="alert-icon">ℹ️</span>
             <div class="alert-content">
-              <div class="alert-title">New SCSS Release v2.5.0 Available</div>
-              <div class="alert-desc">Integrated Progress Ring &amp; Circular Status Gauge components.</div>
+              <div class="alert-title">New SCSS Release v2.6.0 Available</div>
+              <div class="alert-desc">Integrated Breadcrumb Trail Navigation components.</div>
             </div>
             <span class="badge" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.4);">INFO</span>
           </div>
@@ -931,7 +952,7 @@
           <div class="feature-card">
             <div class="card-icon">🧩</div>
             <h3 class="card-title">`scss/components/`</h3>
-            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, search, ribbons, sliders, flip-cards, gauges, data tables, and modals.</p>
+            <p class="card-desc">Decoupled SCSS stylesheets for navbars, buttons, metric widgets, token swatches, charts, codeboxes, alerts, forms, pricing, timeline, drawers, accordion, search, ribbons, sliders, flip-cards, gauges, breadcrumbs, data tables, and modals.</p>
           </div>
         </div>
       </section>
@@ -1105,7 +1126,7 @@
             <strong style="font-size: 0.8125rem; color: #ffffff;">⚡ ApexUI System Alert</strong>
             <label for="toast-dismiss" style="cursor: pointer; color: #94a3b8; font-size: 0.75rem;">✕</label>
           </div>
-          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.5.0 deployed to Vercel production edge.</p>
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Release v2.6.0 deployed to Vercel production edge.</p>
         </div>
       </div>
 
@@ -1144,8 +1165,8 @@ $color-danger: #f43f5e;</pre>
 
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 16px; margin-bottom: 20px; font-family: monospace; font-size: 0.8125rem;">
             <div style="color: #818cf8; margin-bottom: 6px;">● Target File: css/style.css (Minified)</div>
-            <div style="color: #94a3b8; margin-bottom: 6px;">● Bundle Size: 16.5 KB (Gzip: 4.5 KB)</div>
-            <div style="color: #10b981;">● SHA256: c317da3dd758a57458b1d053bf694a35</div>
+            <div style="color: #94a3b8; margin-bottom: 6px;">● Bundle Size: 16.8 KB (Gzip: 4.6 KB)</div>
+            <div style="color: #10b981;">● SHA256: acd741a2.6.0c317da3dd758a57458b</div>
           </div>
 
           <div class="modal-actions">
@@ -1189,18 +1210,18 @@ $color-danger: #f43f5e;</pre>
               <h4 class="footer-col-title">SCSS Modules</h4>
               <ul class="footer-links">
                 <li><a href="#modal-inspect-variables">_variables.scss</a></li>
+                <li><a href="#breadcrumbs">_breadcrumbs.scss</a></li>
                 <li><a href="#gauges">_gauges.scss</a></li>
                 <li><a href="#flip-cards">_flip-cards.scss</a></li>
-                <li><a href="#sliders">_sliders.scss</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-col-title">Components</h4>
               <ul class="footer-links">
+                <li><a href="#breadcrumbs">Breadcrumbs Navigation</a></li>
                 <li><a href="#gauges">Circular Status Gauges</a></li>
                 <li><a href="#flip-cards">3D Flip Cards</a></li>
-                <li><a href="#sliders">Sliders &amp; Level Meters</a></li>
                 <li><a href="#data-table">Enterprise Data Table</a></li>
               </ul>
             </div>
@@ -1209,7 +1230,7 @@ $color-danger: #f43f5e;</pre>
               <h4 class="footer-col-title">Documentation</h4>
               <ul class="footer-links">
                 <li><a href="README.md">System Architecture Guide</a></li>
-                <li><a href="CHANGELOG.md">Changelog v2.5.0</a></li>
+                <li><a href="CHANGELOG.md">Changelog v2.6.0</a></li>
                 <li><a href="https://github.com/breakingthebot/sass-scss-design-system-build51">GitHub Repository</a></li>
                 <li><a href="LICENSE">MIT License</a></li>
               </ul>
@@ -1218,7 +1239,7 @@ $color-danger: #f43f5e;</pre>
 
           <div class="footer-bottom">
             <span>© 2026 ApexUI Design Infrastructure Inc. All rights reserved. Built with Sass/SCSS.</span>
-            <span>⚡ Release v2.5.0 • Circular Status Gauges</span>
+            <span>⚡ Release v2.6.0 • Breadcrumb Trail Navigation</span>
           </div>
         </div>
       </footer>

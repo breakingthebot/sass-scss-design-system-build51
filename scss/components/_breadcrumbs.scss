@@ -1,0 +1,54 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Breadcrumb Trail Navigation
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.breadcrumb-card {
+  @include glass-card();
+  padding: $spacing-5 $spacing-6;
+  margin-top: $spacing-6;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+  list-style: none;
+  font-size: 0.875rem;
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    color: $color-slate-400;
+
+    a {
+      color: $color-slate-400;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-brand-light;
+      }
+    }
+
+    & + .breadcrumb-item::before {
+      content: '/';
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 400;
+      margin-right: 4px;
+    }
+
+    &.active {
+      color: #ffffff;
+      font-weight: 600;
+
+      span {
+        color: #ffffff;
+      }
+    }
+  }
+}

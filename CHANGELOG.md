@@ -5,11 +5,16 @@ All notable changes to **Build 51 (ApexUI — Enterprise Sass/SCSS Design System
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] - 2026-07-29
+
+### Added
+- Integrated **Breadcrumb Trail Navigation Bar (`scss/components/_breadcrumbs.scss`)**.
+- Added pseudo-element slash separators (`content: '/'`) and active page indicators.
+
 ## [2.5.0] - 2026-07-29
 
 ### Added
 - Integrated **Progress Ring & Circular Status Gauge Component (`scss/components/_gauges.scss`)**.
-- Added SVG circular progress rings driven by `--gauge-percent` variables and stroke-dashoffset transitions.
 
 ## [2.4.0] - 2026-07-29
 
