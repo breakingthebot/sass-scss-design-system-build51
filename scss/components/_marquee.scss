@@ -1,0 +1,62 @@
+// ==========================================================================
+// ApexUI Design System — SCSS Component: Infinite Scrolling Code Marquee
+// ==========================================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.marquee-section {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: $spacing-6 0;
+  margin-top: $spacing-8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.5);
+
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+
+  .marquee-track {
+    display: flex;
+    gap: $spacing-4;
+    width: max-content;
+    animation: marqueeScroll 25s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .marquee-item {
+    @include glass-card();
+    padding: $spacing-3 $spacing-5;
+    white-space: nowrap;
+    font-family: $font-mono;
+    font-size: 0.8125rem;
+    color: $color-brand-light;
+    border-radius: $radius-full;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+
+    .marquee-tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.2);
+      color: #818cf8;
+    }
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

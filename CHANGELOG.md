@@ -5,11 +5,16 @@ All notable changes to **Build 51 (ApexUI — Enterprise Sass/SCSS Design System
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] - 2026-07-29
+
+### Added
+- Integrated **Infinite Scrolling Code Streamer Marquee (`scss/components/_marquee.scss`)**.
+- Added continuous horizontal scrolling marquee with CSS keyframe animation (`@keyframes marqueeScroll`) and edge fade masks.
+
 ## [2.6.0] - 2026-07-29
 
 ### Added
 - Integrated **Breadcrumb Trail Navigation Bar (`scss/components/_breadcrumbs.scss`)**.
-- Added pseudo-element slash separators (`content: '/'`) and active page indicators.
 
 ## [2.5.0] - 2026-07-29
 
