@@ -2,9 +2,9 @@
 
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://sass-scss-design-system-build51.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/sass-scss-design-system-build51)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/LICENSE)
-[![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/scss/main.scss)
-[![Release](https://img.shields.io/badge/Release-v2.7.0-pink?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/CHANGELOG.md)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/LICENSE)
+[![Sass](https://img.shields.io/badge/Sass-SCSS%20Modules-CC6699?style=for-the-badge&logo=sass)](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/scss/main.scss)
+[![Release](https://img.shields.io/badge/Release-v2.7.0-pink?style=for-the-badge)](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/CHANGELOG.md)
 
 ---
 
@@ -15,7 +15,7 @@
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://sass-scss-design-system-build51.vercel.app](https://sass-scss-design-system-build51.vercel.app)
 - **GitHub Codebase**: [https://github.com/breakingthebot/sass-scss-design-system-build51](https://github.com/breakingthebot/sass-scss-design-system-build51)
-- **License**: [MIT License](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/LICENSE)
+- **License**: [MIT License](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/LICENSE)
 
 ---
 
@@ -85,11 +85,11 @@ Build_51/
 - **📋 SCSS Code Inspector Box**: Tabbed SCSS source inspector component displaying live code snippets for `_variables.scss`, `_mixins.scss`, and `_themes.scss`.
 - **📊 SCSS Analytics & Bar Chart Component**: Data visualization widget with custom property height variables and hover value tooltips.
 - **🎨 SCSS @each Theme Generator**: Dynamically iterates over `$themes` maps to generate `.theme-dark`, `.theme-light`, and `.theme-cyber` classes.
-- **📄 Open Source MIT License**: Free for commercial and personal usage ([LICENSE](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/LICENSE)).
+- **📄 Open Source MIT License**: Free for commercial and personal usage ([LICENSE](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/LICENSE)).
 - **⚡ 0kb JS Executable Overhead**: 100% Pure CSS interactivity — zero script tags, zero framework runtimes.
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See [LICENSE](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_51/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/breakingthebot/sass-scss-design-system-build51/blob/main/LICENSE) for more information.
